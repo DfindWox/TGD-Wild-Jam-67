@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://jsupauf4pu8f"]
+
+[ext_resource type="PackedScene" uid="uid://c76psunhjjgmq" path="res://Actors/base_character.tscn" id="1_rc4og"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w58cr"]
+
+[node name="Enemy0" instance=ExtResource("1_rc4og")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_w58cr")
