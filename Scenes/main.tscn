@@ -9,3 +9,4 @@
 
 [node name="Enemy0" parent="." instance=ExtResource("2_dbdny")]
 position = Vector2(14, 13)
+max_jumps = 3
