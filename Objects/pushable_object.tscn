@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://vgrhnrppc0xn"]
+
+[ext_resource type="Script" path="res://Objects/pushable_object.gd" id="1_ebnkc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0yau"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utmio"]
+size = Vector2(4, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3uxju"]
+size = Vector2(4, 30)
+
+[node name="PushableObject" type="CharacterBody2D" node_paths=PackedStringArray("push_area_left", "push_area_right")]
+script = ExtResource("1_ebnkc")
+push_area_left = NodePath("PushAreaLeft")
+push_area_right = NodePath("PushAreaRight")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_g0yau")
+
+[node name="PushAreaLeft" type="Area2D" parent="."]
+position = Vector2(-16, 0)
+collision_layer = 2048
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PushAreaLeft"]
+shape = SubResource("RectangleShape2D_utmio")
+debug_color = Color(0.270588, 0.623529, 0.345098, 0.419608)
+
+[node name="PushAreaRight" type="Area2D" parent="."]
+position = Vector2(16, 0)
+collision_layer = 2048
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PushAreaRight"]
+shape = SubResource("RectangleShape2D_3uxju")
+debug_color = Color(0.270588, 0.623529, 0.345098, 0.419608)
