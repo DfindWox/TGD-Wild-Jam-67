@@ -19,16 +19,19 @@ offset_left = 216.0
 offset_top = 69.0
 offset_right = 308.0
 offset_bottom = 170.0
-metadata/_edit_group_ = true
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="BtnStart" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Start"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="BtnCredits" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Credits"
 
-[node name="Button3" type="Button" parent="VBoxContainer"]
+[node name="BtnClose" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Close"
+
+[connection signal="pressed" from="VBoxContainer/BtnStart" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/BtnCredits" to="." method="_on_btn_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/BtnClose" to="." method="_on_btn_close_pressed"]

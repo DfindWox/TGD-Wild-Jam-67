@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy6028gcsqidt"]
+
+[ext_resource type="Theme" uid="uid://b72g06jk405ar" path="res://Assets/Themes/theme_title.tres" id="1_4l3hc"]
+[ext_resource type="Script" path="res://Scenes/credits.gd" id="2_7b4p2"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4l3hc")
+script = ExtResource("2_7b4p2")
+
+[node name="BtnReturn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 37.0
+text = "Return"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 31.0
+offset_right = 195.0
+offset_bottom = 44.0
+text = "logo da tgd aqui"
+
+[connection signal="pressed" from="BtnReturn" to="." method="_on_btn_return_pressed"]
