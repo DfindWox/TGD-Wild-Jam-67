@@ -1,6 +1,5 @@
+class_name Player
 extends CharacterBody2D
-
-
 
 
 const SPEED = 300.0
@@ -33,3 +32,6 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+func kill():
+	get_tree().create_timer(0.5)
+	get_tree().reload_current_scene()
