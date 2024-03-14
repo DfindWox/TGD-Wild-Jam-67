@@ -9,4 +9,5 @@
 
 [node name="Parasite" parent="." instance=ExtResource("2_dbdny")]
 position = Vector2(14, 13)
+has_parasite = null
 max_jumps = 3
