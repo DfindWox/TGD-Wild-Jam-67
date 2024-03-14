@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clc81lv5ng0ov"
-path="res://.godot/imported/PLACEHOLDER_background.png-65a06a326bb8f834300d40826e1b5098.ctex"
+uid="uid://k3h7fkcet1sx"
+path="res://.godot/imported/Fundo.png-6a740428a83b771ad41231144d5fdb0d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/PLACEHOLDER_background.png"
-dest_files=["res://.godot/imported/PLACEHOLDER_background.png-65a06a326bb8f834300d40826e1b5098.ctex"]
+source_file="res://Assets/Images/Fundo.png"
+dest_files=["res://.godot/imported/Fundo.png-6a740428a83b771ad41231144d5fdb0d.ctex"]
 
 [params]
 
