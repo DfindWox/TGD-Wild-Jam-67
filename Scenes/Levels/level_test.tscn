@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://vn3a4opstfk6"]
+
+[ext_resource type="Texture2D" uid="uid://clc81lv5ng0ov" path="res://Assets/Images/PLACEHOLDER_background.png" id="2_gc71j"]
+[ext_resource type="PackedScene" uid="uid://jsupauf4pu8f" path="res://Actors/enemy0.tscn" id="3_8a82b"]
+[ext_resource type="PackedScene" uid="uid://beregrkko0pst" path="res://Scenes/game_camera.tscn" id="4_7rj6p"]
+[ext_resource type="PackedScene" uid="uid://d0q5yf7k322sd" path="res://Actors/map.tscn" id="4_n3y5a"]
+
+[node name="LevelTest" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("2_gc71j")
+centered = false
+
+[node name="Enemy0" parent="." instance=ExtResource("3_8a82b")]
+position = Vector2(14, 13)
+max_jumps = 3
+
+[node name="GameCamera" parent="Enemy0" instance=ExtResource("4_7rj6p")]
+position_smoothing_speed = 20.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 0.6
+drag_bottom_margin = 0.6
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Ground1" parent="." instance=ExtResource("4_n3y5a")]
+
+[node name="Ground2" parent="." instance=ExtResource("4_n3y5a")]
+position = Vector2(318, 0)
+
+[node name="Ground3" parent="." instance=ExtResource("4_n3y5a")]
+position = Vector2(-320, 0)
