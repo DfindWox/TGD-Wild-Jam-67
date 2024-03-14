@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://jggvuvh3pd7n"]
 
 [ext_resource type="PackedScene" uid="uid://d0q5yf7k322sd" path="res://Actors/map.tscn" id="1_nrn8j"]
-[ext_resource type="PackedScene" uid="uid://jsupauf4pu8f" path="res://Actors/enemy0.tscn" id="2_dbdny"]
+[ext_resource type="PackedScene" uid="uid://jsupauf4pu8f" path="res://Actors/parasite.tscn" id="2_dbdny"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Map" parent="." instance=ExtResource("1_nrn8j")]
 
-[node name="Enemy0" parent="." instance=ExtResource("2_dbdny")]
+[node name="Parasite" parent="." instance=ExtResource("2_dbdny")]
 position = Vector2(14, 13)
 max_jumps = 3

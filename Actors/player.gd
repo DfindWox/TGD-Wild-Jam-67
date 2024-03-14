@@ -13,13 +13,28 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
+	basic_physics(delta)
+	if has_parasite:
+		move()
+		skills()
+
+func kill():
+	get_tree().create_timer(0.5)
+	get_tree().reload_current_scene()
+	
+func skills():
+	print_debug("RAAWWNNNN")
+	
+func basic_physics(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	if is_on_floor():
 		total_jumps = 0
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and total_jumps < max_jumps:
+
+func move():
+	if Input.is_action_just_pressed("ui_up") and total_jumps < max_jumps:
 		velocity.y = JUMP_VELOCITY
 		total_jumps += 1
 
@@ -30,8 +45,4 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
 	move_and_slide()
-func kill():
-	get_tree().create_timer(0.5)
-	get_tree().reload_current_scene()
