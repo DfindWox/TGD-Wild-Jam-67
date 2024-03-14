@@ -13,7 +13,12 @@ var sfx_queue = []  # The queue of sounds to play.
 
 ## Usage: AudioManager.play_music("Example1.wav")
 func play_music(music_file:String, audio_bus:String = "MUSIC"):
+	if music_player.stream:
+		var current_music_file = music_player.stream.resource_path.get_file()
+		if music_file == current_music_file and audio_bus == music_player.bus:
+			return # no need to replay the song; use stop_music() for that. 
 	var sound_path = MUSIC_FOLDER + music_file
+	
 	music_player.stop()
 	music_player.stream = load(sound_path)
 	music_player.bus = audio_bus
