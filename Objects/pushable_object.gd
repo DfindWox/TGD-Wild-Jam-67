@@ -3,7 +3,7 @@ extends CharacterBody2D
 enum { LEFT, RIGHT }
 
 @export var push_speed : float = 16 # pixels por segundo
-@export var gravity : float = 1000 # p/s2
+@export var gravity : float = 980 # p/s2
 
 ## usar a layer 12, "PUSH DETECTOR", na layer dessa area (sem mask)
 ## a hitbox do inimigo pra empurrar deve ser uma Area2D com mask 12
@@ -28,19 +28,20 @@ func _physics_process(delta):
 		velocity.y = 0
 	# pushing
 	var hor_move : float = 0
-	if push_area_left_active: hor_move -= 1
-	if push_area_right_active: hor_move += 1
+	print("hormove:", hor_move)
+	if push_area_left_active: hor_move += 1
+	if push_area_right_active: hor_move -= 1
 	hor_move *= push_speed
 	velocity.x = move_toward(velocity.x, hor_move, delta*100)
 	
 	move_and_slide()
 
-func _on_area_entered_pusharea(left_or_right, area:Area2D):
+func _on_area_entered_pusharea(area:Area2D, left_or_right):
 	match left_or_right:
 		LEFT: push_area_left_active = true
 		RIGHT: push_area_right_active = true
 
-func _on_area_exited_pusharea(left_or_right, area:Area2D):
+func _on_area_exited_pusharea(area:Area2D, left_or_right):
 	match left_or_right:
 		LEFT: push_area_left_active = false
 		RIGHT: push_area_right_active = false
