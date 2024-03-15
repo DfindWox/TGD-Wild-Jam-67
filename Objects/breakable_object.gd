@@ -4,16 +4,17 @@ extends CharacterBody2D
 ## seja impacto, fogo, etc etc.
 ## Use collision layers diferentes pra tipos diferentes de ataques.
 
-@export var break_area : Area2D
+var break_area : Area2D
 var animation_player : AnimationPlayer
 
 func _ready():
+	break_area = $BreakDetectionArea
 	break_area.area_entered.connect(_on_area_entered_breakarea)
 	animation_player = $AnimationPlayer
 
 ## A animação "break" pode ser customizada pra cada caso.
 func break_object():
-	break_area.process_mode = Node.PROCESS_MODE_DISABLED
+	break_area.queue_free()
 	animation_player.play("break")
 	await animation_player.animation_finished
 	queue_free()

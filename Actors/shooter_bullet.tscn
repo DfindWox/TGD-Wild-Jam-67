@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://8gg5knyx0li8"]
+
+[ext_resource type="Script" path="res://Objects/Zones/DeathZone.gd" id="1_2jp3y"]
+[ext_resource type="Script" path="res://Actors/shooter_bullet.gd" id="1_6volf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gv57s"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fjn0y"]
+radius = 4.12311
+
+[node name="ShooterBullet" type="CharacterBody2D"]
+script = ExtResource("1_6volf")
+
+[node name="DeathZone" type="Area2D" parent="."]
+script = ExtResource("1_2jp3y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+shape = SubResource("CircleShape2D_gv57s")
+debug_color = Color(0.996078, 0, 0.168627, 0.419608)
+
+[node name="BreakArea" type="Area2D" parent="."]
+collision_layer = 1024
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakArea"]
+shape = SubResource("CircleShape2D_fjn0y")
+debug_color = Color(0.607843, 0.537255, 0.0431373, 0.419608)
+
+[connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
+[connection signal="player_killed" from="DeathZone" to="." method="_on_death_zone_player_killed"]
+[connection signal="area_entered" from="BreakArea" to="." method="_on_break_area_area_entered"]

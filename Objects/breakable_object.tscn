@@ -24,8 +24,8 @@ script = ExtResource("1_px5gy")
 shape = SubResource("RectangleShape2D_x1ps4")
 
 [node name="BreakDetectionArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 1024
+collision_mask = 1024
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BreakDetectionArea"]
 shape = SubResource("RectangleShape2D_418wy")
@@ -35,3 +35,5 @@ debug_color = Color(0.498039, 0.580392, 0.0941176, 0.419608)
 libraries = {
 "": SubResource("AnimationLibrary_f3vs6")
 }
+
+[connection signal="area_entered" from="BreakDetectionArea" to="." method="_on_break_detection_area_area_entered"]
