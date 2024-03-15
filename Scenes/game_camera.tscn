@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://beregrkko0pst"]
+
+[node name="GameCamera" type="Camera2D"]
+process_callback = 0
+limit_top = 0
+limit_bottom = 180
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
