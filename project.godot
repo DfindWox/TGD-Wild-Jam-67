@@ -32,6 +32,10 @@ window/stretch/mode="viewport"
 
 fonts/dynamic_fonts/use_oversampling=false
 
+[layer_names]
+
+2d_physics/layer_12="PUSH"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
