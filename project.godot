@@ -34,6 +34,7 @@ fonts/dynamic_fonts/use_oversampling=false
 
 [layer_names]
 
+2d_physics/layer_2="FALL THROUGH PLATFORM"
 2d_physics/layer_12="PUSH"
 
 [rendering]
