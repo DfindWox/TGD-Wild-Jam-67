@@ -1,6 +1,9 @@
 extends Player
 
-func skills():
+func _ready():
+	has_parasite = true
+
+func player_skills(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		take_over()
 

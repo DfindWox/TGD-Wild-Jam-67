@@ -9,8 +9,4 @@ func _on_player_entered(body:Node2D):
 	kill_player(body)
 
 func kill_player(player):
-	# player.kill()
-	await get_tree().create_timer(0.5)
-	await Fade.fade_out()
-	await get_tree().create_timer(0.5)
-	get_tree().reload_current_scene()
+	player.kill()
