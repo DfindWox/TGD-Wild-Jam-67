@@ -10,7 +10,9 @@ func _ready():
 
 ## Falta mudar isso ainda, como detectar se é o player entrando aqui?
 func is_body_player(body):
+	
 	if body.is_in_group("PLAYER"): return true
+	if body is Player and body.has_parasite: return true
 	#if body is Player: return true
 	return false
 

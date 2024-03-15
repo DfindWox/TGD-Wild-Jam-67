@@ -6,6 +6,7 @@ extends PlayerDetectionZone
 @export var next_scene_packed : PackedScene = null
 
 func _ready():
+	super()
 	player_entered.connect(_on_player_entered)
 
 func _on_player_entered(player):
@@ -19,3 +20,4 @@ func go_to_next_scene(player):
 	await Fade.fade_out(1.5)
 	await get_tree().create_timer(0.5)
 	get_tree().change_scene_to_packed(next_scene_packed)
+	await Fade.fade_in()

@@ -42,6 +42,8 @@ func _physics_process(delta):
 			player_skills(delta)
 		else:
 			ai_behavior(delta)
+	else:
+		velocity.x = 0
 	move_and_slide()
 
 func kill():
@@ -54,6 +56,7 @@ func kill():
 		await Fade.fade_out()
 		await get_tree().create_timer(0.5).timeout
 		get_tree().reload_current_scene()
+		await Fade.fade_in()
 
 func basic_physics(delta):
 	# Add the gravity.
