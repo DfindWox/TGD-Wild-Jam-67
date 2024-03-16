@@ -29,8 +29,6 @@ centered = false
 
 [node name="Parasite" parent="." instance=ExtResource("3_8a82b")]
 position = Vector2(14, 13)
-has_parasite = false
-max_jumps = 3
 
 [node name="GameCamera" parent="Parasite" instance=ExtResource("4_7rj6p")]
 position_smoothing_speed = 20.0

@@ -25,6 +25,7 @@ func player_move(_delta): # delta não é usado ainda pois ta incluso em move_an
 	if Input.is_action_just_pressed("ui_up") and total_jumps < max_jumps:
 		velocity.y = - jump_velocity
 		total_jumps += 1
+		$AnimationPlayer.play("jump")
 		AudioManager.play_sfx("jump.wav")
 	
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -70,7 +71,7 @@ func detach_parasite():
 
 func kill():
 	is_dead = true
-	# play animation die
+	$AnimationPlayer.play("die")
 	if not has_parasite:
 		AudioManager.play_sfx("interesting.wav")
 	else:
