@@ -22,6 +22,7 @@ func _process(_delta):
 	
 	# show popup
 	%AttackArea.scale.x = 1 if is_facing_right else -1
+	$Sprite2D.scale.x = 1 if is_facing_right else -1
 	%TakeOverDetectionArea.scale.x = 1 if is_facing_right else -1
 	if takeover_detection_count > 0:
 		%TakeOverLabel.visible = true
@@ -42,8 +43,7 @@ func player_skills(_delta):
 		attempt_take_over()
 
 func attempt_take_over():
-	print_debug("taking over")
-	$AnimationPlayer.play("attack")
+	$AnimationPlayer.play("attemptTakeOver")
 	pass
 
 func do_take_over(body:Player):
