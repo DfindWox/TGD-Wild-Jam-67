@@ -4,6 +4,7 @@ func _ready():
 	# stuff before fade
 	AudioManager.play_music("1-stargazing_0.mp3")
 	await Fade.fade_in(0.2)
+	AudioManager.install_ui(self)
 	# stuff after fade
 	print("hello world")
 	$VBoxContainer/BtnStart.grab_focus()

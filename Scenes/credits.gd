@@ -2,6 +2,7 @@ extends Control
 
 func _ready():
 	await Fade.fade_in(0.2)
+	AudioManager.install_ui(self)
 	$BtnReturn.grab_focus()
 
 func _on_btn_return_pressed():

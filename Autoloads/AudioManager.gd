@@ -88,10 +88,10 @@ func _process(_delta):
 		#front_stream.play()
 
 func _on_ui_button_hovered():
-	pass
+	play_sfx("select.wav")
 	# play click sound
 
 
 func _on_ui_button_pressed():
-	pass
+	play_sfx("confirm.wav")
 	# play click sound
