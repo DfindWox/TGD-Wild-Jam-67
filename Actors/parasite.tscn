@@ -1,17 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://jsupauf4pu8f"]
+[gd_scene load_steps=10 format=3 uid="uid://jsupauf4pu8f"]
 
 [ext_resource type="PackedScene" uid="uid://c76psunhjjgmq" path="res://Actors/player.tscn" id="1_rc4og"]
 [ext_resource type="Script" path="res://Actors/parasite.gd" id="2_wv6nm"]
+[ext_resource type="Theme" uid="uid://b72g06jk405ar" path="res://Assets/Themes/theme_title.tres" id="3_u3k5t"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_w58cr"]
-radius = 4.12311
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ho102"]
+size = Vector2(12, 12)
 
 [sub_resource type="Animation" id="Animation_ij1mi"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AttackArea/AttackCollisionArea:disabled")
+tracks/0/path = NodePath("AttackArea/AttackCollision:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -27,7 +28,7 @@ length = 0.41
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AttackArea/AttackCollisionArea:disabled")
+tracks/0/path = NodePath("AttackArea/AttackCollision:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -44,14 +45,18 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cnsk"]
-size = Vector2(20, 12)
+size = Vector2(20, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6a1ns"]
+size = Vector2(18, 14)
 
 [node name="Parasite" instance=ExtResource("1_rc4og")]
 script = ExtResource("2_wv6nm")
 has_parasite = true
+jump_velocity = 400.0
 
 [node name="CollisionShape2D" parent="." index="0"]
-shape = SubResource("CircleShape2D_w58cr")
+shape = SubResource("RectangleShape2D_ho102")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 libraries = {
@@ -59,11 +64,48 @@ libraries = {
 }
 
 [node name="AttackArea" type="Area2D" parent="." index="3"]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 256
 monitorable = false
 
-[node name="AttackCollisionArea" type="CollisionShape2D" parent="AttackArea" index="0"]
-position = Vector2(14, -1)
+[node name="AttackCollision" type="CollisionShape2D" parent="AttackArea" index="0"]
+position = Vector2(14, -3)
 shape = SubResource("RectangleShape2D_2cnsk")
 disabled = true
 
+[node name="TakeOverDetectionArea" type="Area2D" parent="." index="4"]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 256
+monitorable = false
+metadata/_edit_lock_ = true
+
+[node name="TakeOverCollision" type="CollisionShape2D" parent="TakeOverDetectionArea" index="0"]
+position = Vector2(14, -3)
+shape = SubResource("RectangleShape2D_6a1ns")
+debug_color = Color(0.603922, 0.501961, 0.54902, 0.419608)
+metadata/_edit_lock_ = true
+
+[node name="TakeOverLabel" type="Label" parent="." index="5"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -30.0
+offset_right = 50.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 0)
+theme = ExtResource("3_u3k5t")
+theme_override_font_sizes/font_size = 16
+text = "Take Over"
+horizontal_alignment = 1
+
 [connection signal="body_entered" from="AttackArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="TakeOverDetectionArea" to="." method="_on_take_over_detection_area_body_entered"]
+[connection signal="body_exited" from="TakeOverDetectionArea" to="." method="_on_take_over_detection_area_body_exited"]
