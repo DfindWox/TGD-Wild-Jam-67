@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bftvfsjlakke2"]
+
+[ext_resource type="PackedScene" uid="uid://c76psunhjjgmq" path="res://Actors/player.tscn" id="1_gefrd"]
+[ext_resource type="Script" path="res://Actors/jumper.gd" id="2_nb3p1"]
+
+[node name="jumper" instance=ExtResource("1_gefrd")]
+script = ExtResource("2_nb3p1")
