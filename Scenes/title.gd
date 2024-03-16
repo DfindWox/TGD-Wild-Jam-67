@@ -2,6 +2,7 @@ extends Control
 
 func _ready():
 	# stuff before fade
+	AudioManager.play_music("1-stargazing_0.mp3")
 	await Fade.fade_in(0.2)
 	# stuff after fade
 	print("hello world")
@@ -12,6 +13,8 @@ func _ready():
 
 func _on_btn_start_pressed():
 	await Fade.fade_out()
+	AudioManager.stop_music()
+	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_file("res://Scenes/main.tscn")
 	await Fade.fade_in()
 
