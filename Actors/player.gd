@@ -25,6 +25,7 @@ func player_move(_delta): # delta não é usado ainda pois ta incluso em move_an
 	if Input.is_action_just_pressed("ui_up") and total_jumps < max_jumps:
 		velocity.y = - jump_velocity
 		total_jumps += 1
+		AudioManager.play_sfx("jump.wav")
 	
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
@@ -51,7 +52,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func detach_parasite():
-	print("detach")
+	AudioManager.play_sfx("detach.wav")
 	has_parasite = false
 	var parasite = parasite_scene_packed.instantiate()
 	get_tree().current_scene.add_child(parasite)
@@ -70,10 +71,17 @@ func detach_parasite():
 func kill():
 	is_dead = true
 	# play animation die
+	if not has_parasite:
+		AudioManager.play_sfx("interesting.wav")
+	else:
+		AudioManager.play_sfx("death.wav")
+	
 	await get_tree().create_timer(0.5).timeout
 	if not has_parasite:
+		
 		queue_free()
 	else:
+		
 		await Fade.fade_out()
 		await get_tree().create_timer(0.5).timeout
 		get_tree().reload_current_scene()

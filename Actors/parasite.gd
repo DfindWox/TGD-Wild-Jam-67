@@ -49,6 +49,7 @@ func attempt_take_over():
 func do_take_over(body:Player):
 	is_taking_over = true
 	$CollisionShape2D.set_deferred("disabled", true)
+	AudioManager.play_sfx("jump.wav")
 	
 	velocity.x = move_speed * (1 if is_facing_right else -1) * 0.5
 	velocity.y = -jump_velocity * 0.5
@@ -56,6 +57,7 @@ func do_take_over(body:Player):
 	
 	await get_tree().create_timer(0.2).timeout
 	if is_dead: return
+	AudioManager.play_sfx("attach.wav")
 	body.has_parasite = true
 	var camera = get_node_or_null("GameCamera")
 	if camera:

@@ -24,3 +24,4 @@ func shoot():
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = global_position
 	bullet.set_direction(is_facing_right)
+	AudioManager.play_sfx("shoot.wav")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://vn3a4opstfk6"]
+[gd_scene load_steps=12 format=3 uid="uid://vn3a4opstfk6"]
 
 [ext_resource type="Texture2D" uid="uid://k3h7fkcet1sx" path="res://Assets/Images/Fundo.png" id="1_6pq48"]
 [ext_resource type="PackedScene" uid="uid://jsupauf4pu8f" path="res://Actors/parasite.tscn" id="3_8a82b"]
@@ -6,10 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://d0q5yf7k322sd" path="res://Actors/map.tscn" id="4_n3y5a"]
 [ext_resource type="PackedScene" uid="uid://dyxv11adu27lc" path="res://Actors/shooter.tscn" id="6_f1mod"]
 [ext_resource type="PackedScene" uid="uid://doui2ldt6gv6o" path="res://Actors/pusher.tscn" id="6_jreuu"]
+[ext_resource type="Script" path="res://Objects/Zones/DeathZone.gd" id="7_jyevf"]
+[ext_resource type="Script" path="res://Objects/Zones/LevelFinishZone.gd" id="8_pck77"]
+[ext_resource type="PackedScene" uid="uid://dy3wv60dua1v5" path="res://Objects/breakable_object.tscn" id="9_63u10"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbjpb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxgfs"]
 
 [node name="LevelTest" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(-19.7528, 0)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.2, 0)
@@ -46,3 +54,21 @@ position = Vector2(152, 154)
 
 [node name="Pusher" parent="." instance=ExtResource("6_jreuu")]
 position = Vector2(100, 153)
+
+[node name="DeathZone" type="Area2D" parent="."]
+position = Vector2(200, 148)
+script = ExtResource("7_jyevf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+position = Vector2(32, -7)
+shape = SubResource("RectangleShape2D_qbjpb")
+debug_color = Color(0.905882, 0.305882, 0, 0.419608)
+
+[node name="LevelFinishZone" type="Area2D" parent="."]
+position = Vector2(328, 139)
+script = ExtResource("8_pck77")
+next_scene_packed = ExtResource("9_63u10")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelFinishZone"]
+shape = SubResource("RectangleShape2D_xxgfs")
+debug_color = Color(0, 0, 0, 0.419608)
