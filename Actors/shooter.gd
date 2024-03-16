@@ -4,13 +4,6 @@ var bullet_packed : PackedScene = load("res://Actors/shooter_bullet.tscn")
 
 @onready var attack_timer : Timer = $AttackTimer
 
-var is_facing_right := true
-
-func _process(delta):
-	if velocity.x > 0:
-		is_facing_right = true
-	if velocity.x < 0:
-		is_facing_right = false
 
 func player_skills(_delta:float):
 	if Input.is_action_just_pressed("attack"):

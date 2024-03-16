@@ -3,7 +3,6 @@ extends Player
 ## usar o class name só para checar se essa cena é parasita ou não
 
 var is_taking_over := false
-var is_facing_right := false
 
 var takeover_detection_count : int = 0
 
@@ -48,14 +47,15 @@ func attempt_take_over():
 
 func do_take_over(body:Player):
 	is_taking_over = true
-	$CollisionShape2D.set_deferred("disabled", true)
+	#$CollisionShape2D.set_deferred("disabled", true)
 	AudioManager.play_sfx("jump.wav")
+	$AnimationPlayer.play("takeOver")
 	
-	velocity.x = move_speed * (1 if is_facing_right else -1) * 0.5
-	velocity.y = -jump_velocity * 0.5
+	#velocity.x = move_speed * (1 if is_facing_right else -1) * 0.5
+	#velocity.y = -jump_velocity * 0.5
 	move_and_slide()
 	
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.5).timeout
 	if is_dead: return
 	AudioManager.play_sfx("attach.wav")
 	body.has_parasite = true

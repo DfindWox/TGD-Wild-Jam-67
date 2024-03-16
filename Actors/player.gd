@@ -12,6 +12,7 @@ var parasite_scene_packed : PackedScene = load("res://Actors/parasite.tscn")
 var total_jumps : int = 0
 var is_dead := false
 
+var is_facing_right := false
 
 ## virtual, o codigo rodado quando o bixo não é possuido
 func ai_behavior(_delta:float):
@@ -94,6 +95,11 @@ func basic_physics(delta):
 	if is_on_floor():
 		velocity.y = 0
 		total_jumps = 0
-	# Handle jump.
+	
+	# flip, um frame atrasado?
+	if velocity.x > 0:
+		is_facing_right = true
+	elif velocity.x < 0:
+		is_facing_right = false
 
 
