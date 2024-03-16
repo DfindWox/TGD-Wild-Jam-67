@@ -51,6 +51,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func detach_parasite():
+	print("detach")
 	has_parasite = false
 	var parasite = parasite_scene_packed.instantiate()
 	get_tree().current_scene.add_child(parasite)
@@ -58,6 +59,11 @@ func detach_parasite():
 	parasite.velocity.y = -100
 	parasite.velocity.x = 100 * [-1,1].pick_random()
 	parasite.is_taking_over = true
+	var camera = get_node_or_null("GameCamera")
+	if camera:
+		remove_child(camera)
+		parasite.add_child(camera)
+		camera.position = Vector2.ZERO
 	await get_tree().create_timer(0.5).timeout
 	parasite.is_taking_over = false
 

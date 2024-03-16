@@ -19,8 +19,12 @@ motion_mirroring = Vector2(400, 0)
 texture = ExtResource("1_6pq48")
 centered = false
 
-[node name="GameCamera" parent="." instance=ExtResource("4_7rj6p")]
+[node name="Parasite" parent="." instance=ExtResource("3_8a82b")]
 position = Vector2(14, 13)
+has_parasite = false
+max_jumps = 3
+
+[node name="GameCamera" parent="Parasite" instance=ExtResource("4_7rj6p")]
 position_smoothing_speed = 20.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
@@ -28,11 +32,6 @@ drag_top_margin = 0.6
 drag_bottom_margin = 0.6
 editor_draw_limits = true
 editor_draw_drag_margin = true
-
-[node name="Enemy0" parent="." instance=ExtResource("3_8a82b")]
-position = Vector2(14, 13)
-has_parasite = false
-max_jumps = 3
 
 [node name="Ground1" parent="." instance=ExtResource("4_n3y5a")]
 

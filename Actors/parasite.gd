@@ -7,6 +7,10 @@ var is_facing_right := false
 
 var takeover_detection_count : int = 0
 
+## vazio, parasita n sai dele mesmo
+func detach_parasite():
+	pass
+
 func _ready():
 	has_parasite = true
 
@@ -34,7 +38,7 @@ func _physics_process(delta):
 		super(delta) # chama a função da classe Player
 
 func player_skills(_delta):
-	if Input.is_action_just_pressed("take_over"):
+	if not is_taking_over and Input.is_action_just_pressed("take_over"):
 		attempt_take_over()
 
 func attempt_take_over():
@@ -49,15 +53,23 @@ func do_take_over(body:Player):
 	velocity.x = move_speed * (1 if is_facing_right else -1) * 0.5
 	velocity.y = -jump_velocity * 0.5
 	move_and_slide()
+	
 	await get_tree().create_timer(0.2).timeout
 	if is_dead: return
 	body.has_parasite = true
+	var camera = get_node_or_null("GameCamera")
+	if camera:
+		remove_child(camera)
+		body.add_child(camera)
+		camera.position = Vector2.ZERO
 	queue_free()
 
 # Apenas objetos na layer 9: ENEMY podem entrar
 func _on_area_2d_body_entered(body):
 	if is_taking_over: return
 	if not body is Player: return
+	if body == self: return
+	print(body)
 	# if not, try to take over
 	do_take_over(body)
 
