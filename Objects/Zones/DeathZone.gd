@@ -16,6 +16,7 @@ func _on_player_entered(body:Node2D):
 	
 	kill_player(body)
 
-func kill_player(player):
-	player.kill()
-	player_killed.emit()
+func kill_player(player:Player):
+	if not player.is_dead:
+		player.kill()
+		player_killed.emit()
