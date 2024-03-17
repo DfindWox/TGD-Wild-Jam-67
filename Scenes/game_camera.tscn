@@ -2,6 +2,7 @@
 
 [node name="GameCamera" type="Camera2D"]
 process_callback = 0
+limit_left = 0
 limit_top = 0
 limit_bottom = 180
 position_smoothing_enabled = true

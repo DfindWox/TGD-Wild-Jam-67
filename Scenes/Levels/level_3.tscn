@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://k3h7fkcet1sx" path="res://Assets/Images/Fundo.png" id="1_3fgut"]
 [ext_resource type="PackedScene" uid="uid://jsupauf4pu8f" path="res://Actors/parasite.tscn" id="2_lkvhv"]
 [ext_resource type="PackedScene" uid="uid://beregrkko0pst" path="res://Scenes/game_camera.tscn" id="3_muhxh"]
-[ext_resource type="TileSet" uid="uid://6x35rg6j1sgg" path="res://Assets/Tilesets/cenario.tres" id="4_cokch"]
+[ext_resource type="TileSet" uid="uid://be8geo5gppwp" path="res://Assets/Tilesets/cenario.tres" id="4_cokch"]
 [ext_resource type="PackedScene" uid="uid://dy3wv60dua1v5" path="res://Objects/breakable_object.tscn" id="5_iomdk"]
 
 [node name="LevelTest" type="Node2D"]
@@ -20,10 +20,6 @@ centered = false
 
 [node name="Parasite" parent="." instance=ExtResource("2_lkvhv")]
 position = Vector2(32, 136)
-has_parasite = false
-max_jumps = 3
-move_speed = 100.0
-jump_velocity = 300.0
 
 [node name="GameCamera" parent="Parasite" instance=ExtResource("3_muhxh")]
 position_smoothing_speed = 20.0
