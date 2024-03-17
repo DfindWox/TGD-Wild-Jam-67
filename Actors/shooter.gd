@@ -4,9 +4,19 @@ var bullet_packed : PackedScene = load("res://Actors/shooter_bullet.tscn")
 
 @onready var attack_timer : Timer = $AttackTimer
 
-func _process(delta):
+func _process(_delta):
 	# animations
 	%Sprite2D.flip_h = not is_facing_right
+	$RayCast2D.scale.x = 1 if is_facing_right else -1
+
+func ai_behavior(_delta):
+	if attack_timer.is_stopped():
+		var collided_body = $RayCast2D.get_collider()
+		if collided_body and collided_body is Player and collided_body.has_parasite:
+			$AnimationPlayer.play("shoot")
+		else: #attempt failed
+			$AnimationPlayer.play("land")
+		attack_timer.start()
 
 func player_skills(_delta:float):
 	if Input.is_action_just_pressed("attack"):

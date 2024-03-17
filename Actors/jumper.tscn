@@ -5,6 +5,3 @@
 
 [node name="jumper" instance=ExtResource("1_gefrd")]
 script = ExtResource("2_nb3p1")
-
-[node name="Sprite2D" parent="." index="1"]
-unique_name_in_owner = true
