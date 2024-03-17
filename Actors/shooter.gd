@@ -10,9 +10,10 @@ func _process(_delta):
 	$RayCast2D.scale.x = 1 if is_facing_right else -1
 
 func ai_behavior(_delta):
+	print('check')
 	if attack_timer.is_stopped():
 		var collided_body = $RayCast2D.get_collider()
-		if collided_body and collided_body is Player and collided_body.has_parasite:
+		if collided_body and collided_body is Player and collided_body.has_parasite and $AttackDelay.is_stopped():
 			$AttackDelay.start()
 		else: #attempt failed
 			$AnimationPlayer.play("land")
