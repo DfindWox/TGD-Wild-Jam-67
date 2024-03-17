@@ -181,3 +181,9 @@ autoplay = "idle"
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(100, 0)
+
+[node name="AttackDelay" type="Timer" parent="."]
+wait_time = 0.505
+one_shot = true
+
+[connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]

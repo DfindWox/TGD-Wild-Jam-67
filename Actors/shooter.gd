@@ -13,10 +13,10 @@ func ai_behavior(_delta):
 	if attack_timer.is_stopped():
 		var collided_body = $RayCast2D.get_collider()
 		if collided_body and collided_body is Player and collided_body.has_parasite:
-			$AnimationPlayer.play("shoot")
+			$AttackDelay.start()
 		else: #attempt failed
 			$AnimationPlayer.play("land")
-		attack_timer.start()
+			attack_timer.start()
 
 func player_skills(_delta:float):
 	if Input.is_action_just_pressed("attack"):
@@ -32,6 +32,9 @@ func shoot():
 	bullet.set_direction(is_facing_right)
 	AudioManager.play_sfx("shoot.wav")
 
-func detach_parasite():
-	$attack_timer.start() # nao atirar imediatamente apos sair
-	super()
+
+
+
+func _on_attack_delay_timeout():
+	$AnimationPlayer.play("shoot")
+	attack_timer.start()
