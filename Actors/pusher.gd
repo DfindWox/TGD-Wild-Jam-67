@@ -12,6 +12,14 @@ func _process(delta):
 		if %AnimationPlayer.current_animation in ["jump", ""]:
 			$AnimationPlayer.play("pushStart")
 func ai_behavior(_delta):
+	if is_on_floor() and velocity.y == 0:
+		if $AnimationPlayer.current_animation in ["jump",""]:
+			$AnimationPlayer.play("land")
+		elif velocity.x == 0 and $AnimationPlayer.current_animation == "move":
+			$AnimationPlayer.play("idle")
+		elif velocity.x != 0 and $AnimationPlayer.current_animation == "idle":
+			$AnimationPlayer.play("move")
+		
 	if saw_enemy and $EdgeRay.is_colliding():
 		velocity.x = move_speed * move_speed_mod * $RayCast2D.scale.x
 	else:
