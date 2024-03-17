@@ -84,7 +84,7 @@ func detach_parasite():
 		dir = 1
 	else:
 		dir = -1
-	parasite.velocity.x = 100 * dir
+	parasite.velocity.x = 10 * dir
 	parasite.is_taking_over = true
 	var camera = get_node_or_null("GameCamera")
 	if camera:
