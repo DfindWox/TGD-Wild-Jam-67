@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dyns571vvg2am"]
+[gd_scene load_steps=11 format=3 uid="uid://dyns571vvg2am"]
 
 [ext_resource type="TileSet" uid="uid://be8geo5gppwp" path="res://Assets/Tilesets/cenario.tres" id="1_buyp2"]
 [ext_resource type="Texture2D" uid="uid://7ko5stpjb1b2" path="res://Assets/Images/Fundo caverna.png" id="1_ihe8i"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b0u8yv8u8tpxf" path="res://Objects/death_spikes.tscn" id="5_xq6ph"]
 [ext_resource type="Script" path="res://Objects/Zones/LevelFinishZone.gd" id="6_kiklw"]
 [ext_resource type="Texture2D" uid="uid://ce8n25tqvtio3" path="res://Assets/Tilesets/Flag.png" id="7_381pw"]
+[ext_resource type="PackedScene" uid="uid://c8p1a2ugaowql" path="res://Scenes/Levels/level_5.tscn" id="8_nwjvy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3bqw"]
 size = Vector2(46, 130.5)
@@ -15,6 +16,7 @@ size = Vector2(46, 130.5)
 [node name="Level4" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(-22.8606, 0)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.2, 0)
@@ -59,6 +61,7 @@ rotation = 3.14159
 [node name="LevelFinish" type="Area2D" parent="."]
 position = Vector2(48, 0)
 script = ExtResource("6_kiklw")
+next_scene_packed = ExtResource("8_nwjvy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelFinish"]
 position = Vector2(873, 77.25)
@@ -72,4 +75,4 @@ texture = ExtResource("7_381pw")
 position = Vector2(768, 128)
 
 [connection signal="detach" from="TileMap/Pusher" to="TileMap/Pusher" method="_on_detach"]
-[connection signal="detach" from="TileMap/@CharacterBody2D@37689" to="TileMap/@CharacterBody2D@37689" method="_on_detach"]
+[connection signal="detach" from="TileMap/@CharacterBody2D@22111" to="TileMap/@CharacterBody2D@22111" method="_on_detach"]
