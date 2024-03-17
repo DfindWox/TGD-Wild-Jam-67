@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://d0q5yf7k322sd" path="res://Actors/map.tscn" id="1_nrn8j"]
 [ext_resource type="PackedScene" uid="uid://jsupauf4pu8f" path="res://Actors/parasite.tscn" id="2_dbdny"]
-[ext_resource type="PackedScene" uid="uid://dyxv11adu27lc" path="res://Actors/shooter.tscn" id="3_1a8xg"]
-[ext_resource type="PackedScene" uid="uid://dy3wv60dua1v5" path="res://Objects/breakable_object.tscn" id="4_45dvt"]
+[ext_resource type="PackedScene" uid="uid://vgrhnrppc0xn" path="res://Objects/pushable_object.tscn" id="3_kp8ie"]
+[ext_resource type="PackedScene" uid="uid://doui2ldt6gv6o" path="res://Actors/pusher.tscn" id="4_gait2"]
 
 [node name="Main" type="Node2D"]
 
@@ -14,8 +14,8 @@ position = Vector2(14, 13)
 has_parasite = false
 max_jumps = 3
 
-[node name="Shooter" parent="." instance=ExtResource("3_1a8xg")]
-position = Vector2(143, 159)
+[node name="PushableObject" parent="." instance=ExtResource("3_kp8ie")]
+position = Vector2(176, 152)
 
-[node name="BreakableObject" parent="." instance=ExtResource("4_45dvt")]
-position = Vector2(208, 152)
+[node name="Pusher" parent="." instance=ExtResource("4_gait2")]
+position = Vector2(120, 152)
