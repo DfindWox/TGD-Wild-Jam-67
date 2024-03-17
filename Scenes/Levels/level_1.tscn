@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8q4asu0m7yx5"]
+[gd_scene load_steps=13 format=3 uid="uid://c8q4asu0m7yx5"]
 
 [ext_resource type="Texture2D" uid="uid://k3h7fkcet1sx" path="res://Assets/Images/Fundo.png" id="1_v8a42"]
 [ext_resource type="PackedScene" uid="uid://jsupauf4pu8f" path="res://Actors/parasite.tscn" id="2_wd103"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ce8n25tqvtio3" path="res://Assets/Tilesets/Flag.png" id="7_hkqt5"]
 [ext_resource type="PackedScene" uid="uid://vgrhnrppc0xn" path="res://Objects/pushable_object.tscn" id="9_uc624"]
 [ext_resource type="PackedScene" uid="uid://dyxv11adu27lc" path="res://Actors/shooter.tscn" id="10_l54i3"]
+[ext_resource type="Theme" uid="uid://b72g06jk405ar" path="res://Assets/Themes/theme_title.tres" id="11_alv4e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mokxr"]
 size = Vector2(61.9999, 32)
@@ -69,5 +70,33 @@ position = Vector2(91.727, 144)
 
 [node name="Shooter" parent="." instance=ExtResource("10_l54i3")]
 position = Vector2(331.727, 152)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 139.727
+offset_top = 96.0
+offset_right = 180.727
+offset_bottom = 119.0
+theme = ExtResource("11_alv4e")
+theme_override_font_sizes/font_size = 15
+text = "Z: Detach"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = -308.273
+offset_top = 96.0
+offset_right = -248.273
+offset_bottom = 119.0
+theme = ExtResource("11_alv4e")
+theme_override_font_sizes/font_size = 15
+text = "Arrows: Move"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 323.727
+offset_top = 96.0
+offset_right = 364.727
+offset_bottom = 119.0
+theme = ExtResource("11_alv4e")
+theme_override_font_sizes/font_size = 15
+text = "X: Shoot
+"
 
 [connection signal="detach" from="TileMap/Pusher" to="TileMap/Pusher" method="_on_detach"]
