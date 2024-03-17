@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dyns571vvg2am"]
+[gd_scene load_steps=9 format=3 uid="uid://dyns571vvg2am"]
 
 [ext_resource type="TileSet" uid="uid://be8geo5gppwp" path="res://Assets/Tilesets/cenario.tres" id="1_buyp2"]
 [ext_resource type="PackedScene" uid="uid://jsupauf4pu8f" path="res://Actors/parasite.tscn" id="2_anuao"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dy3wv60dua1v5" path="res://Objects/breakable_object.tscn" id="4_iqtpj"]
 [ext_resource type="PackedScene" uid="uid://b0u8yv8u8tpxf" path="res://Objects/death_spikes.tscn" id="5_xq6ph"]
 [ext_resource type="Script" path="res://Objects/Zones/LevelFinishZone.gd" id="6_kiklw"]
+[ext_resource type="PackedScene" uid="uid://dyxv11adu27lc" path="res://Actors/shooter.tscn" id="7_gfhev"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3bqw"]
 size = Vector2(46, 130.5)
@@ -53,6 +54,9 @@ shape = SubResource("RectangleShape2D_v3bqw")
 
 [node name="BreakableObject2" parent="." instance=ExtResource("4_iqtpj")]
 position = Vector2(769, 121)
+
+[node name="Shooter" parent="." instance=ExtResource("7_gfhev")]
+position = Vector2(367, 101)
 
 [connection signal="detach" from="TileMap/Pusher" to="TileMap/Pusher" method="_on_detach"]
 [connection signal="detach" from="TileMap/@CharacterBody2D@19519" to="TileMap/@CharacterBody2D@19519" method="_on_detach"]
