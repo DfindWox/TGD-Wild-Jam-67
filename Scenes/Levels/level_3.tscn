@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckbun01s5srae"]
+[gd_scene load_steps=10 format=3 uid="uid://ckbun01s5srae"]
 
 [ext_resource type="Texture2D" uid="uid://k3h7fkcet1sx" path="res://Assets/Images/Fundo.png" id="1_3fgut"]
 [ext_resource type="PackedScene" uid="uid://jsupauf4pu8f" path="res://Actors/parasite.tscn" id="2_lkvhv"]
@@ -6,6 +6,11 @@
 [ext_resource type="TileSet" uid="uid://be8geo5gppwp" path="res://Assets/Tilesets/cenario.tres" id="4_cokch"]
 [ext_resource type="PackedScene" uid="uid://dy3wv60dua1v5" path="res://Objects/breakable_object.tscn" id="5_iomdk"]
 [ext_resource type="PackedScene" uid="uid://dyxv11adu27lc" path="res://Actors/shooter.tscn" id="6_pxy05"]
+[ext_resource type="Script" path="res://Objects/Zones/LevelFinishZone.gd" id="7_kdyys"]
+[ext_resource type="Texture2D" uid="uid://ce8n25tqvtio3" path="res://Assets/Tilesets/Flag.png" id="8_hh1k0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2sqcb"]
+size = Vector2(32, 32)
 
 [node name="LevelTest" type="Node2D"]
 
@@ -41,5 +46,18 @@ layer_0/tile_data = PackedInt32Array(589824, 131072, 1, 589825, 131072, 1, 58982
 
 [node name="Shooter" parent="." instance=ExtResource("6_pxy05")]
 position = Vector2(440, 136)
+
+[node name="LevelFinishZone" type="Area2D" parent="."]
+position = Vector2(776, 120)
+script = ExtResource("7_kdyys")
+next_scene_packed = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelFinishZone"]
+position = Vector2(8, 7)
+shape = SubResource("RectangleShape2D_2sqcb")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelFinishZone"]
+position = Vector2(8, 7)
+texture = ExtResource("8_hh1k0")
 
 [connection signal="detach" from="TileMap/Pusher" to="TileMap/Pusher" method="_on_detach"]
