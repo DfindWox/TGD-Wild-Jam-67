@@ -9,10 +9,13 @@ var parasite_scene_packed : PackedScene = load("res://Actors/parasite.tscn")
 @export var jump_velocity : float = 200.0
 @export var gravity : float = 980#ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var total_jumps : int = 0
+@export var sprite_normal : Texture2D
+@export var sprite_has_parasite : Texture2D
+
+var total_jumps : int = 100
 var is_dead := false
 
-var is_facing_right := false
+@export var is_facing_right := true
 
 ## virtual, o codigo rodado quando o bixo não é possuido
 func ai_behavior(_delta:float):
@@ -34,6 +37,15 @@ func player_move(_delta): # delta não é usado ainda pois ta incluso em move_an
 		velocity.x = direction * move_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
+	
+	if is_on_floor() and velocity.y == 0:
+		if $AnimationPlayer.current_animation in ["jump",""]:
+			$AnimationPlayer.play("land")
+		elif velocity.x == 0 and $AnimationPlayer.current_animation == "move":
+			$AnimationPlayer.play("idle")
+		elif velocity.x != 0 and $AnimationPlayer.current_animation == "idle":
+			$AnimationPlayer.play("move")
+
 
 # func _process(delta):
 #	pass
@@ -67,6 +79,9 @@ func detach_parasite():
 		remove_child(camera)
 		parasite.add_child(camera)
 		camera.position = Vector2.ZERO
+	var sprite = get_node_or_null("Sprite2D")
+	if sprite:
+		sprite.texture = sprite_normal
 	await get_tree().create_timer(0.5).timeout
 	parasite.is_taking_over = false
 

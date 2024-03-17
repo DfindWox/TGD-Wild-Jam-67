@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://vn3a4opstfk6"]
+[gd_scene load_steps=13 format=3 uid="uid://vn3a4opstfk6"]
 
 [ext_resource type="Texture2D" uid="uid://k3h7fkcet1sx" path="res://Assets/Images/Fundo.png" id="1_6pq48"]
 [ext_resource type="PackedScene" uid="uid://jsupauf4pu8f" path="res://Actors/parasite.tscn" id="3_8a82b"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Objects/Zones/DeathZone.gd" id="7_jyevf"]
 [ext_resource type="Script" path="res://Objects/Zones/LevelFinishZone.gd" id="8_pck77"]
 [ext_resource type="PackedScene" uid="uid://dy3wv60dua1v5" path="res://Objects/breakable_object.tscn" id="9_63u10"]
+[ext_resource type="PackedScene" uid="uid://vgrhnrppc0xn" path="res://Objects/pushable_object.tscn" id="10_eqxmq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbjpb"]
 
@@ -70,3 +71,6 @@ next_scene_packed = ExtResource("9_63u10")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelFinishZone"]
 shape = SubResource("RectangleShape2D_xxgfs")
 debug_color = Color(0, 0, 0, 0.419608)
+
+[node name="PushableObject" parent="." instance=ExtResource("10_eqxmq")]
+position = Vector2(-28, 146)

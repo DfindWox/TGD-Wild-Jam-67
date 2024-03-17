@@ -4,12 +4,15 @@ var bullet_packed : PackedScene = load("res://Actors/shooter_bullet.tscn")
 
 @onready var attack_timer : Timer = $AttackTimer
 
+func _process(delta):
+	# animations
+	%Sprite2D.flip_h = not is_facing_right
 
 func player_skills(_delta:float):
 	if Input.is_action_just_pressed("attack"):
 		if attack_timer.is_stopped():
 			attack_timer.start()
-			shoot()
+			$AnimationPlayer.play("shoot")
 
 func shoot():
 	var bullet : Node2D = bullet_packed.instantiate()

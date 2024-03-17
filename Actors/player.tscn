@@ -8,3 +8,4 @@ script = ExtResource("1_2ux5j")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true

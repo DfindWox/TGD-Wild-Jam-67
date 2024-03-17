@@ -10,10 +10,11 @@ func _ready():
 	player_entered.connect(_on_player_entered)
 
 func _on_player_entered(player):
-	go_to_next_scene(player)
+	if player is Parasite:
+		go_to_next_scene(player)
 
 func go_to_next_scene(player):
-	# player.commemorate()
+	player.happy()
 	# tocar efeito sonoro e particula legal
 	AudioManager.play_sfx("stage_end.wav")
 	
