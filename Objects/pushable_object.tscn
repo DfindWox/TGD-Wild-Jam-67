@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://vgrhnrppc0xn"]
+[gd_scene load_steps=16 format=3 uid="uid://vgrhnrppc0xn"]
 
 [ext_resource type="Script" path="res://Objects/pushable_object.gd" id="1_ebnkc"]
 [ext_resource type="Texture2D" uid="uid://cqllwggewqgr4" path="res://Assets/Tilesets/Model Sheet (Cenario).png" id="2_nrw0c"]
 [ext_resource type="AudioStream" uid="uid://csnp7kq28q22r" path="res://Assets/SFX/push_looping.wav" id="3_dmoib"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0yau"]
-size = Vector2(24, 19)
+size = Vector2(24, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utmio"]
 size = Vector2(4, 19)
@@ -53,13 +53,16 @@ colors = PackedColorArray(1, 1, 1, 1, 0.333333, 0.686275, 1, 1)
 gradient = SubResource("Gradient_jfg4d")
 width = 1
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66jvu"]
+size = Vector2(20, 2)
+
 [node name="PushableObject" type="CharacterBody2D" node_paths=PackedStringArray("push_area_left", "push_area_right")]
 script = ExtResource("1_ebnkc")
 push_area_left = NodePath("PushAreaLeft")
 push_area_right = NodePath("PushAreaRight")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.5)
+position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_g0yau")
 
 [node name="PushAreaLeft" type="Area2D" parent="."]
@@ -117,3 +120,7 @@ unique_name_in_owner = true
 stream = ExtResource("3_dmoib")
 autoplay = true
 bus = &"SFX"
+
+[node name="Floor" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_66jvu")
