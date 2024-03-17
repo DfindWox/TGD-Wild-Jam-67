@@ -21,15 +21,12 @@ texture = SubResource("AtlasTexture_jebpn")
 [node name="DeathZone" type="Area2D" parent="."]
 script = ExtResource("2_w47ck")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathZone"]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_tf7d7")
 debug_color = Color(0.984314, 0.121569, 0.0352941, 0.419608)
 
-[node name="DeathZone2" type="Area2D" parent="."]
-script = ExtResource("2_w47ck")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_ktsd0")
 debug_color = Color(0.984314, 0.121569, 0.0352941, 0.419608)
