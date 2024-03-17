@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dyns571vvg2am"]
+[gd_scene load_steps=9 format=3 uid="uid://d3ftxq63ujvvg"]
 
 [ext_resource type="TileSet" uid="uid://be8geo5gppwp" path="res://Assets/Tilesets/cenario.tres" id="1_buyp2"]
 [ext_resource type="PackedScene" uid="uid://jsupauf4pu8f" path="res://Actors/parasite.tscn" id="2_anuao"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dy3wv60dua1v5" path="res://Objects/breakable_object.tscn" id="4_iqtpj"]
 [ext_resource type="PackedScene" uid="uid://b0u8yv8u8tpxf" path="res://Objects/death_spikes.tscn" id="5_xq6ph"]
 [ext_resource type="Script" path="res://Objects/Zones/LevelFinishZone.gd" id="6_kiklw"]
+[ext_resource type="PackedScene" uid="uid://c8p1a2ugaowql" path="res://Scenes/Levels/level_5.tscn" id="7_odiqp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3bqw"]
 size = Vector2(46, 130.5)
@@ -46,6 +47,7 @@ rotation = 3.14159
 
 [node name="LevelFinish" type="Area2D" parent="."]
 script = ExtResource("6_kiklw")
+next_scene_packed = ExtResource("7_odiqp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelFinish"]
 position = Vector2(873, 77.25)
@@ -55,5 +57,4 @@ shape = SubResource("RectangleShape2D_v3bqw")
 position = Vector2(769, 121)
 
 [connection signal="detach" from="TileMap/Pusher" to="TileMap/Pusher" method="_on_detach"]
-[connection signal="detach" from="TileMap/Shooter" to="TileMap/Shooter" method="_on_detach"]
-[connection signal="detach" from="TileMap/@CharacterBody2D@87012" to="TileMap/@CharacterBody2D@87012" method="_on_detach"]
+[connection signal="detach" from="TileMap/@CharacterBody2D@77248" to="TileMap/@CharacterBody2D@77248" method="_on_detach"]
