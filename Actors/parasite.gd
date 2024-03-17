@@ -44,8 +44,6 @@ func player_skills(_delta):
 	if not is_taking_over and Input.is_action_just_pressed("take_over"):
 		attempt_take_over()
 
-func happy():
-	$AnimationPlayer.play("happy")
 
 func attempt_take_over():
 	$AnimationPlayer.play("attemptTakeOver")

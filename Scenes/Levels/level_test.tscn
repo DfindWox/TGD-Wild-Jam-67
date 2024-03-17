@@ -50,13 +50,13 @@ position = Vector2(370, 0)
 position = Vector2(-320, 0)
 
 [node name="Shooter" parent="." instance=ExtResource("6_f1mod")]
-position = Vector2(154, 92)
+position = Vector2(256, 63)
 
 [node name="Pusher" parent="." instance=ExtResource("6_jreuu")]
-position = Vector2(100, 153)
+position = Vector2(235, 146)
 
 [node name="DeathZone" type="Area2D" parent="."]
-position = Vector2(306, 118)
+position = Vector2(381, 122)
 script = ExtResource("7_jyevf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
@@ -65,7 +65,7 @@ shape = SubResource("RectangleShape2D_qbjpb")
 debug_color = Color(0.905882, 0.305882, 0, 0.419608)
 
 [node name="LevelFinishZone" type="Area2D" parent="."]
-position = Vector2(504, 110)
+position = Vector2(94, 97)
 script = ExtResource("8_pck77")
 next_scene_packed = ExtResource("9_63u10")
 

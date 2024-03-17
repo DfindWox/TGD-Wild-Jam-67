@@ -52,7 +52,9 @@ func player_move(_delta): # delta não é usado ainda pois ta incluso em move_an
 
 # func _process(delta):
 #	pass
-
+func happy():
+	$AnimationPlayer.play("happy")
+	
 func _physics_process(delta):
 	basic_physics(delta)
 	if not is_dead:
