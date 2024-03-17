@@ -22,6 +22,7 @@ func go_to_next_scene(player):
 	get_child(0).set_deferred("disabled", true)
 	
 	player.happy()
+	player.set_physics_process(false)
 	await get_tree().create_timer(2.5).timeout
 	await Fade.fade_out(1.0)
 	await get_tree().create_timer(1.0).timeout
