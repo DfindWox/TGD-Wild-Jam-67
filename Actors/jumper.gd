@@ -24,8 +24,8 @@ func ai_behavior(_delta):
 func do_ai_jump():
 	ai_jump_timer.start()
 	is_facing_right = not is_facing_right
-	velocity.y = - jump_velocity * 0.5
-	velocity.x = air_move_speed * 0.5
+	velocity.y = - jump_velocity * 0.3
+	velocity.x = air_move_speed * 0.3
 	if not is_facing_right: 
 		velocity.x *= -1
 	await get_tree().create_timer(0.6).timeout
