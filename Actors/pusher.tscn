@@ -274,7 +274,26 @@ hframes = 7
 vframes = 5
 frame = 28
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 2)
+target_position = Vector2(138, 0)
+
+[node name="AggroTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="TurnTimer" type="Timer" parent="."]
+wait_time = 3.5
+autostart = true
+
+[node name="EdgeRay" type="RayCast2D" parent="."]
+position = Vector2(13, -10)
+target_position = Vector2(0, 22)
+hit_from_inside = true
+
 [connection signal="area_entered" from="PushAreaLeft" to="." method="_on_push_area_area_entered"]
 [connection signal="area_exited" from="PushAreaLeft" to="." method="_on_push_area_area_exited"]
 [connection signal="area_entered" from="PushAreaRight" to="." method="_on_push_area_area_entered"]
 [connection signal="area_exited" from="PushAreaRight" to="." method="_on_push_area_area_exited"]
+[connection signal="timeout" from="AggroTimer" to="." method="_on_aggro_timer_timeout"]
+[connection signal="timeout" from="TurnTimer" to="." method="_on_turn_timer_timeout"]

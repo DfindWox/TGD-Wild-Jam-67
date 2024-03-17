@@ -27,6 +27,8 @@ func player_skills(_delta:float):
 
 func player_move(_delta): # delta não é usado ainda pois ta incluso em move_and_slide
 	if Input.is_action_just_pressed("ui_up") and total_jumps < max_jumps:
+		if not is_on_floor() and max_jumps == 1:
+			return
 		total_jumps += 1
 		velocity.y = - jump_velocity
 		$AnimationPlayer.stop()
@@ -67,6 +69,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func detach_parasite():
+	velocity = Vector2.ZERO
 	AudioManager.play_sfx("detach.wav")
 	has_parasite = false
 	var parasite = parasite_scene_packed.instantiate()
