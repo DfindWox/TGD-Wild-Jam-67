@@ -1,8 +1,13 @@
-[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://be8geo5gppwp"]
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://be8geo5gppwp"]
 
 [ext_resource type="Texture2D" uid="uid://cqllwggewqgr4" path="res://Assets/Tilesets/Model Sheet (Cenario).png" id="1_eoov4"]
 [ext_resource type="PackedScene" uid="uid://b0u8yv8u8tpxf" path="res://Objects/death_spikes.tscn" id="2_jisl5"]
 [ext_resource type="PackedScene" uid="uid://c14v3w3t0w6mg" path="res://Objects/death_water.tscn" id="3_uq8ef"]
+[ext_resource type="PackedScene" uid="uid://dy3wv60dua1v5" path="res://Objects/breakable_object.tscn" id="4_iuo33"]
+[ext_resource type="PackedScene" uid="uid://vgrhnrppc0xn" path="res://Objects/pushable_object.tscn" id="5_aleem"]
+[ext_resource type="PackedScene" uid="uid://dyxv11adu27lc" path="res://Actors/shooter.tscn" id="6_nag7q"]
+[ext_resource type="PackedScene" uid="uid://doui2ldt6gv6o" path="res://Actors/pusher.tscn" id="7_u2v7v"]
+[ext_resource type="PackedScene" uid="uid://bftvfsjlakke2" path="res://Actors/jumper.tscn" id="8_6anqv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tv0hp"]
 texture = ExtResource("1_eoov4")
@@ -245,7 +250,20 @@ resource_name = "Death Zones"
 scenes/1/scene = ExtResource("2_jisl5")
 scenes/2/scene = ExtResource("3_uq8ef")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_146vk"]
+resource_name = "objects"
+scenes/1/scene = ExtResource("4_iuo33")
+scenes/2/scene = ExtResource("5_aleem")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_e3kok"]
+resource_name = "enemies"
+scenes/1/scene = ExtResource("6_nag7q")
+scenes/2/scene = ExtResource("7_u2v7v")
+scenes/3/scene = ExtResource("8_6anqv")
+
 [resource]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_tv0hp")
 sources/1 = SubResource("TileSetScenesCollectionSource_x62jt")
+sources/2 = SubResource("TileSetScenesCollectionSource_146vk")
+sources/3 = SubResource("TileSetScenesCollectionSource_e3kok")
