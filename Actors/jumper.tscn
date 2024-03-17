@@ -8,6 +8,21 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0s7hh"]
 size = Vector2(10, 12)
 
+[sub_resource type="Animation" id="Animation_wgkkj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 3)]
+}
+
 [sub_resource type="Animation" id="Animation_r5aca"]
 resource_name = "die"
 tracks/0/type = "value"
@@ -35,6 +50,24 @@ tracks/1/keys = {
 "args": [],
 "method": &"adjust_jump_velocity"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_7dllm"]
+resource_name = "happy"
+length = 0.48
+loop_mode = 2
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3)]
 }
 
 [sub_resource type="Animation" id="Animation_n57ro"]
@@ -126,39 +159,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_7dllm"]
-resource_name = "happy"
-length = 0.48
-loop_mode = 2
-step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3)]
-}
-
-[sub_resource type="Animation" id="Animation_wgkkj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 3)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_28ntg"]
