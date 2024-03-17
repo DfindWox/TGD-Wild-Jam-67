@@ -28,7 +28,7 @@ func _physics_process(delta):
 		velocity.y = 0
 	# pushing
 	var hor_move : float = 0
-	print("hormove:", hor_move)
+	#print("hormove:", hor_move)
 	if push_area_left_active: hor_move += 1
 	if push_area_right_active: hor_move -= 1
 	hor_move *= push_speed

@@ -21,7 +21,6 @@ func _process(_delta):
 	
 	# show popup
 	%AttackArea.scale.x = 1 if is_facing_right else -1
-	$Sprite2D.scale.x = 1 if is_facing_right else -1
 	%TakeOverDetectionArea.scale.x = 1 if is_facing_right else -1
 	if takeover_detection_count > 0:
 		%TakeOverLabel.visible = true
@@ -29,6 +28,10 @@ func _process(_delta):
 		%TakeOverLabel.global_position += Vector2(0, -32) - %TakeOverLabel.pivot_offset
 	else:
 		%TakeOverLabel.visible = false
+	
+	# animations
+	%Sprite2D.flip_h = not is_facing_right
+
 
 func _physics_process(delta):
 	if is_taking_over:
@@ -40,6 +43,9 @@ func _physics_process(delta):
 func player_skills(_delta):
 	if not is_taking_over and Input.is_action_just_pressed("take_over"):
 		attempt_take_over()
+
+func happy():
+	$AnimationPlayer.play("happy")
 
 func attempt_take_over():
 	$AnimationPlayer.play("attemptTakeOver")
@@ -64,6 +70,9 @@ func do_take_over(body:Player):
 		remove_child(camera)
 		body.add_child(camera)
 		camera.position = Vector2.ZERO
+	var sprite = body.get_node_or_null("Sprite2D")
+	if sprite:
+		sprite.texture = body.sprite_has_parasite
 	queue_free()
 
 # Apenas objetos na layer 9: ENEMY podem entrar
