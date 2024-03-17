@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c14v3w3t0w6mg"]
+
+[ext_resource type="Texture2D" uid="uid://cqllwggewqgr4" path="res://Assets/Tilesets/Model Sheet (Cenario).png" id="1_qxqqr"]
+[ext_resource type="Script" path="res://Objects/Zones/DeathZone.gd" id="2_obwlg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qlq8"]
+atlas = ExtResource("1_qxqqr")
+region = Rect2(240, 64, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tf7d7"]
+size = Vector2(16, 16)
+
+[node name="DeathSpikes" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_4qlq8")
+
+[node name="DeathZone" type="Area2D" parent="."]
+script = ExtResource("2_obwlg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+shape = SubResource("RectangleShape2D_tf7d7")
+debug_color = Color(0.984314, 0.121569, 0.0352941, 0.419608)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7ko5stpjb1b2"
-path="res://.godot/imported/Fundo caverna.png-fc17346c182e1d9504f0959cc9c6c286.ctex"
+uid="uid://cqllwggewqgr4"
+path="res://.godot/imported/Model Sheet (Cenario).png-d6a594539d7bbc38ec50b545811449e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Fundo caverna.png"
-dest_files=["res://.godot/imported/Fundo caverna.png-fc17346c182e1d9504f0959cc9c6c286.ctex"]
+source_file="res://Assets/Tilesets/Model Sheet (Cenario).png"
+dest_files=["res://.godot/imported/Model Sheet (Cenario).png-d6a594539d7bbc38ec50b545811449e7.ctex"]
 
 [params]
 
