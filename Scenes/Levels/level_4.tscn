@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://dyns571vvg2am"]
+
+[ext_resource type="TileSet" uid="uid://be8geo5gppwp" path="res://Assets/Tilesets/cenario.tres" id="1_buyp2"]
+[ext_resource type="PackedScene" uid="uid://jsupauf4pu8f" path="res://Actors/parasite.tscn" id="2_anuao"]
+[ext_resource type="PackedScene" uid="uid://beregrkko0pst" path="res://Scenes/game_camera.tscn" id="3_1tenh"]
+[ext_resource type="PackedScene" uid="uid://dy3wv60dua1v5" path="res://Objects/breakable_object.tscn" id="4_iqtpj"]
+[ext_resource type="PackedScene" uid="uid://b0u8yv8u8tpxf" path="res://Objects/death_spikes.tscn" id="5_xq6ph"]
+[ext_resource type="Script" path="res://Objects/Zones/LevelFinishZone.gd" id="6_kiklw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3bqw"]
+size = Vector2(46, 130.5)
+
+[node name="Level4" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_buyp2")
+format = 2
+layer_0/tile_data = PackedInt32Array(589824, 65536, 2, 589825, 131072, 1, 589826, 131072, 1, 589827, 131072, 1, 589828, 131072, 1, 589829, 131072, 1, 589830, 131072, 1, 655360, 65536, 3, 655361, 131072, 3, 655362, 131072, 3, 655363, 131072, 3, 655364, 131072, 3, 655365, 131072, 3, 655366, 131072, 3, 589831, 131072, 1, 655367, 131072, 3, 589832, 131072, 1, 655368, 131072, 3, 589833, 131072, 1, 655369, 131072, 3, 589834, 196608, 1, 655370, 196608, 3, 655371, 131072, 1, 655372, 131072, 1, 655373, 131072, 1, 589838, 1, 65536, 655374, 131072, 1, 589839, 1, 65536, 655375, 131072, 1, 589840, 1, 65536, 655376, 131072, 1, 589841, 1, 65536, 655377, 131072, 1, 589842, 1, 65536, 655378, 196608, 1, 393216, 65536, 2, 393217, 131072, 3, 393218, 131072, 3, 393219, 131072, 3, 393220, 131072, 3, 393221, 131072, 3, 393222, 196608, 3, 327686, 196608, 1, 327685, 131072, 1, 327684, 131072, 1, 327683, 131072, 1, 327682, 131072, 1, 327681, 131072, 1, 327680, 65536, 1, 524289, 3, 131072, 458752, 65536, 2, 524288, 65536, 2, 524291, 1, 65536, 524292, 1, 65536, 458764, 2, 131072, 589846, 131072, 1, 589847, 131072, 1, 589848, 131072, 1, 589849, 131072, 1, 589850, 131072, 1, 589851, 131072, 1, 589852, 131072, 1, 589853, 131072, 1, 655381, 65536, 3, 655382, 131072, 3, 655383, 131072, 3, 655384, 131072, 3, 655385, 131072, 3, 655386, 131072, 3, 655387, 131072, 3, 655388, 131072, 3, 655389, 131072, 3, 655390, 196608, 3, 589854, 196608, 1, 589845, 65536, 1, 524310, 3, 65536, 327707, 2, 131072, 655391, 65536, 1, 655392, 131072, 1, 655393, 131072, 1, 655394, 131072, 1, 655395, 131072, 1, 655396, 131072, 1, 655397, 131072, 1, 655398, 131072, 1, 655399, 131072, 1, 655400, 196608, 1, 589858, 1, 65536, 589859, 1, 65536, 589860, 1, 65536, 589861, 1, 65536, 589862, 1, 65536, 589863, 1, 65536, 589864, 1, 65536, 458782, 3, 131072, 196635, 3, 196608, 262188, 65536, 2, 327724, 65536, 3, 327725, 131072, 3, 327726, 131072, 3, 327727, 131072, 3, 327728, 131072, 3, 327729, 131072, 3, 327730, 131072, 3, 327731, 131072, 3, 327732, 196608, 3, 262189, 131072, 2, 262190, 131072, 2, 262191, 131072, 2, 262192, 131072, 2, 262193, 131072, 2, 262194, 131072, 2, 262195, 131072, 2, 262196, 196608, 2, 196652, 65536, 1, 196653, 131072, 1, 196654, 131072, 1, 196655, 131072, 1, 196656, 131072, 1, 196657, 131072, 1, 196658, 131072, 1, 196659, 131072, 1, 196660, 196608, 1, 589867, 65536, 1, 655403, 65536, 3, 589868, 131072, 1, 589869, 131072, 1, 589870, 131072, 1, 589871, 131072, 1, 589872, 131072, 1, 589873, 131072, 1, 589874, 131072, 1, 589875, 131072, 1, 589876, 131072, 1, 589877, 131072, 1, 589878, 131072, 1, 589879, 196608, 1, 655415, 196608, 3, 655414, 131072, 3, 655413, 131072, 3, 655412, 131072, 3, 655411, 131072, 3, 655410, 131072, 3, 655409, 131072, 3, 655408, 131072, 3, 655407, 131072, 3, 655406, 131072, 3, 655405, 131072, 3, 655404, 131072, 3, 851979, 1, 131072, 851980, 1, 131072, 851981, 1, 131072, 851982, 1, 131072, 851983, 1, 131072, 851984, 1, 131072, 851985, 1, 131072, 851986, 1, 131072, 851987, 1, 131072, 851988, 1, 131072, 851989, 1, 131072, 851990, 1, 131072, 851991, 1, 131072, 851992, 1, 131072, 851993, 1, 131072, 851994, 1, 131072, 851995, 1, 131072, 851996, 1, 131072, 851997, 1, 131072, 851998, 1, 131072, 851999, 1, 131072, 852000, 1, 131072, 852001, 1, 131072, 852002, 1, 131072, 852003, 1, 131072, 852004, 1, 131072, 852005, 1, 131072, 852006, 1, 131072, 852007, 1, 131072, 852008, 1, 131072, 852009, 1, 131072, 852010, 1, 131072, 852011, 1, 131072, 852012, 1, 131072, 852013, 1, 131072, 852014, 1, 131072, 852015, 1, 131072, 852016, 1, 131072, 852017, 1, 131072, 852018, 1, 131072, 852019, 1, 131072, 852020, 1, 131072, 852021, 1, 131072, 852022, 1, 131072, 852023, 1, 131072, 852024, 1, 131072, 852025, 1, 131072)
+
+[node name="Parasite" parent="." instance=ExtResource("2_anuao")]
+position = Vector2(6, 47)
+
+[node name="GameCamera" parent="Parasite" instance=ExtResource("3_1tenh")]
+position_smoothing_speed = 20.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 0.6
+drag_bottom_margin = 0.6
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="BreakableObject" parent="." instance=ExtResource("4_iqtpj")]
+position = Vector2(435, 125)
+
+[node name="DeathSpikes" parent="." instance=ExtResource("5_xq6ph")]
+position = Vector2(748, 8)
+rotation = 3.14159
+
+[node name="DeathSpikes2" parent="." instance=ExtResource("5_xq6ph")]
+position = Vector2(731, 8)
+rotation = 3.14159
+
+[node name="DeathSpikes3" parent="." instance=ExtResource("5_xq6ph")]
+position = Vector2(715, 8)
+rotation = 3.14159
+
+[node name="LevelFinish" type="Area2D" parent="."]
+script = ExtResource("6_kiklw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelFinish"]
+position = Vector2(873, 77.25)
+shape = SubResource("RectangleShape2D_v3bqw")
+
+[node name="BreakableObject2" parent="." instance=ExtResource("4_iqtpj")]
+position = Vector2(769, 121)
+
+[connection signal="detach" from="TileMap/Pusher" to="TileMap/Pusher" method="_on_detach"]
+[connection signal="detach" from="TileMap/Shooter" to="TileMap/Shooter" method="_on_detach"]
+[connection signal="detach" from="TileMap/@CharacterBody2D@87012" to="TileMap/@CharacterBody2D@87012" method="_on_detach"]
