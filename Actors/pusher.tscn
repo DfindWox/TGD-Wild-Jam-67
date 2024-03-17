@@ -291,6 +291,7 @@ position = Vector2(13, -10)
 target_position = Vector2(0, 22)
 hit_from_inside = true
 
+[connection signal="detach" from="." to="." method="_on_detach"]
 [connection signal="area_entered" from="PushAreaLeft" to="." method="_on_push_area_area_entered"]
 [connection signal="area_exited" from="PushAreaLeft" to="." method="_on_push_area_area_exited"]
 [connection signal="area_entered" from="PushAreaRight" to="." method="_on_push_area_area_entered"]

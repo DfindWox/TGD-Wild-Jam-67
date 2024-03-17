@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 var parasite_scene_packed : PackedScene = load("res://Actors/parasite.tscn")
-
+signal detach()
 @export var has_parasite:bool = false
 @export var max_jumps : int = 1
 @export var move_speed : float = 200.0
@@ -71,6 +71,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func detach_parasite():
+	detach.emit()
 	velocity = Vector2.ZERO
 	AudioManager.play_sfx("detach.wav")
 	has_parasite = false
