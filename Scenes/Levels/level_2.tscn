@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://k3h7fkcet1sx" path="res://Assets/Images/Fundo.png" id="1_fp1in"]
 [ext_resource type="PackedScene" uid="uid://jsupauf4pu8f" path="res://Actors/parasite.tscn" id="2_7mnsv"]
 [ext_resource type="PackedScene" uid="uid://beregrkko0pst" path="res://Scenes/game_camera.tscn" id="3_r7snd"]
-[ext_resource type="TileSet" uid="uid://6x35rg6j1sgg" path="res://Assets/Tilesets/cenario.tres" id="4_brvcb"]
+[ext_resource type="TileSet" uid="uid://be8geo5gppwp" path="res://Assets/Tilesets/cenario.tres" id="4_brvcb"]
 [ext_resource type="PackedScene" uid="uid://dy3wv60dua1v5" path="res://Objects/breakable_object.tscn" id="5_b0srb"]
-[ext_resource type="PackedScene" uid="uid://8vgglq2tk8tv" path="res://Objects/death_spikes.tscn" id="6_sjoe5"]
+[ext_resource type="PackedScene" uid="uid://b0u8yv8u8tpxf" path="res://Objects/death_spikes.tscn" id="6_sjoe5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybw8h"]
 size = Vector2(16, 12)
@@ -24,10 +24,6 @@ centered = false
 
 [node name="Parasite" parent="." instance=ExtResource("2_7mnsv")]
 position = Vector2(32, 136)
-has_parasite = false
-max_jumps = 3
-move_speed = 100.0
-jump_velocity = 300.0
 
 [node name="GameCamera" parent="Parasite" instance=ExtResource("3_r7snd")]
 position_smoothing_speed = 20.0
@@ -54,7 +50,7 @@ rotation = 1.5708
 position = Vector2(664, 56)
 rotation = -3.14159
 
-[node name="CollisionShape2D" parent="DeathSpikes2/DeathZone" index="0"]
+[node name="CollisionShape2D" parent="DeathSpikes2/DeathZone" index="1"]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_ybw8h")
 

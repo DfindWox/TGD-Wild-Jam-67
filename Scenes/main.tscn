@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://jggvuvh3pd7n"]
+[gd_scene load_steps=5 format=3 uid="uid://jggvuvh3pd7n"]
 
 [ext_resource type="PackedScene" uid="uid://d0q5yf7k322sd" path="res://Actors/map.tscn" id="1_nrn8j"]
 [ext_resource type="PackedScene" uid="uid://jsupauf4pu8f" path="res://Actors/parasite.tscn" id="2_dbdny"]
+[ext_resource type="PackedScene" uid="uid://vgrhnrppc0xn" path="res://Objects/pushable_object.tscn" id="3_kp8ie"]
+[ext_resource type="PackedScene" uid="uid://doui2ldt6gv6o" path="res://Actors/pusher.tscn" id="4_gait2"]
 
 [node name="Main" type="Node2D"]
 
@@ -11,3 +13,9 @@
 position = Vector2(14, 13)
 has_parasite = false
 max_jumps = 3
+
+[node name="PushableObject" parent="." instance=ExtResource("3_kp8ie")]
+position = Vector2(176, 152)
+
+[node name="Pusher" parent="." instance=ExtResource("4_gait2")]
+position = Vector2(120, 152)

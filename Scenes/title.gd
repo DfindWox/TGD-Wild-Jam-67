@@ -17,7 +17,7 @@ func _on_btn_start_pressed():
 	await Fade.fade_out()
 	AudioManager.stop_music()
 	await get_tree().create_timer(1.0).timeout
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/level_1.tscn")
 	AudioManager.play_music("2-garden_0.mp3")
 	await Fade.fade_in()
 	

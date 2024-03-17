@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dy3wv60dua1v5"]
+[gd_scene load_steps=10 format=3 uid="uid://dy3wv60dua1v5"]
 
 [ext_resource type="Script" path="res://Objects/breakable_object.gd" id="1_px5gy"]
+[ext_resource type="Material" uid="uid://l4rj0i1jdf58" path="res://Assets/Shaders/dissolve.material" id="2_21jqd"]
+[ext_resource type="Texture2D" uid="uid://cqllwggewqgr4" path="res://Assets/Tilesets/Model Sheet (Cenario).png" id="3_6ed3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1ps4"]
 size = Vector2(32, 32)
@@ -10,12 +12,44 @@ size = Vector2(44, 42)
 
 [sub_resource type="Animation" id="Animation_yonim"]
 resource_name = "break"
-length = 0.5
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/dissolve_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_d2d72"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/dissolve_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f3vs6"]
 _data = {
+"RESET": SubResource("Animation_d2d72"),
 "break": SubResource("Animation_yonim")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0ftu"]
+atlas = ExtResource("3_6ed3v")
+region = Rect2(224, 16, 32, 32)
 
 [node name="BreakableObject" type="CharacterBody2D"]
 script = ExtResource("1_px5gy")
@@ -35,5 +69,9 @@ debug_color = Color(0.498039, 0.580392, 0.0941176, 0.419608)
 libraries = {
 "": SubResource("AnimationLibrary_f3vs6")
 }
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_21jqd")
+texture = SubResource("AtlasTexture_a0ftu")
 
 [connection signal="area_entered" from="BreakDetectionArea" to="." method="_on_break_detection_area_area_entered"]

@@ -32,9 +32,20 @@ func _physics_process(delta):
 	if push_area_left_active: hor_move += 1
 	if push_area_right_active: hor_move -= 1
 	hor_move *= push_speed
-	velocity.x = move_toward(velocity.x, hor_move, delta*100)
 	
+	if hor_move > 0:
+		%PushParticlesLeft.emitting = true
+	else:
+		%PushParticlesLeft.emitting = false
+	if hor_move < 0:
+		%PushParticlesRight.emitting = true
+	else:
+		%PushParticlesRight.emitting = false
+	
+	velocity.x = move_toward(velocity.x, hor_move, delta*100)
 	move_and_slide()
+	
+	%PushSound.stream_paused = hor_move == 0
 
 func _on_area_entered_pusharea(area:Area2D, left_or_right):
 	match left_or_right:

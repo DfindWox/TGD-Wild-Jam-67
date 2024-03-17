@@ -8,7 +8,7 @@ atlas = ExtResource("1_qxqqr")
 region = Rect2(240, 64, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tf7d7"]
-size = Vector2(16, 16)
+size = Vector2(16, 14)
 
 [node name="DeathSpikes" type="Node2D"]
 
@@ -19,5 +19,6 @@ texture = SubResource("AtlasTexture_4qlq8")
 script = ExtResource("2_obwlg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_tf7d7")
 debug_color = Color(0.984314, 0.121569, 0.0352941, 0.419608)
