@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2rhy88tf5ack"]
+[gd_scene load_steps=7 format=3 uid="uid://d2rhy88tf5ack"]
 
 [ext_resource type="Theme" uid="uid://b72g06jk405ar" path="res://Assets/Themes/theme_title.tres" id="1_s06i3"]
 [ext_resource type="Script" path="res://Scenes/title.gd" id="2_1464n"]
+[ext_resource type="Texture2D" uid="uid://biptx6yu635jb" path="res://Assets/Images/Menu pixealizado.png" id="3_13rwo"]
+[ext_resource type="Theme" uid="uid://csu3bd0v4asma" path="res://Assets/Themes/theme_title_final.tres" id="4_6y32l"]
+[ext_resource type="Texture2D" uid="uid://cwqunurwxb2rq" path="res://Assets/Images/Menu.png" id="5_rmumc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjurl"]
+atlas = ExtResource("5_rmumc")
+region = Rect2(0, 0, 120, 64)
 
 [node name="Title" type="Control"]
 layout_mode = 3
@@ -13,12 +20,19 @@ grow_vertical = 2
 theme = ExtResource("1_s06i3")
 script = ExtResource("2_1464n")
 
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_13rwo")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 216.0
-offset_top = 69.0
-offset_right = 308.0
-offset_bottom = 170.0
+offset_left = 208.0
+offset_top = 88.0
+offset_right = 300.0
+offset_bottom = 192.0
+theme = ExtResource("4_6y32l")
 
 [node name="BtnStart" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -31,6 +45,31 @@ text = "Credits"
 [node name="BtnClose" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Close"
+
+[node name="TitleCard" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -74.0
+offset_right = -8.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_pjurl")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 163.0
+offset_right = 169.0
+offset_bottom = 176.0
+theme_override_colors/font_outline_color = Color(0.415686, 0.262745, 1, 1)
+theme_override_constants/outline_size = 3
+text = "A game by The Guardian Dog Studio"
 
 [connection signal="pressed" from="VBoxContainer/BtnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/BtnCredits" to="." method="_on_btn_credits_pressed"]

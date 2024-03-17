@@ -1,0 +1,25 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://csu3bd0v4asma"]
+
+[ext_resource type="StyleBox" uid="uid://b6ywj20tfn3ok" path="res://Assets/Themes/Panels/panel_title_highlight.stylebox" id="1_8uclp"]
+[ext_resource type="StyleBox" uid="uid://bius6eefbh7hp" path="res://Assets/Themes/Panels/panel_title.stylebox" id="2_vcy3j"]
+[ext_resource type="FontFile" uid="uid://640e70jl6t14" path="res://Assets/Fonts/at01.ttf" id="3_l17ex"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rycd2"]
+
+[resource]
+default_font = ExtResource("3_l17ex")
+default_font_size = 16
+Button/colors/font_outline_color = Color(0.243137, 0, 0.670588, 1)
+Button/constants/outline_size = 5
+Button/styles/disabled = SubResource("StyleBoxEmpty_rycd2")
+Button/styles/focus = ExtResource("1_8uclp")
+Button/styles/hover = ExtResource("2_vcy3j")
+Button/styles/normal = ExtResource("2_vcy3j")
+Button/styles/pressed = ExtResource("1_8uclp")
+HeaderSmall/base_type = &"Label"
+HeaderSmall/colors/font_color = Color(0.772549, 0.0980392, 0.309804, 1)
+HeaderSmall/colors/font_outline_color = Color(1, 1, 1, 1)
+HeaderSmall/constants/outline_size = 9
+HeaderSmall/font_sizes/font_size = 24
+Label/colors/font_outline_color = Color(0.243137, 0, 0.670588, 1)
+Label/constants/outline_size = 3

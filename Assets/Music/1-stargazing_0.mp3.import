@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/1-stargazing_0.mp3-5d439bbae157ce08e49f00460e
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=1.0
+bpm=0.0
 beat_count=0
 bar_beats=4

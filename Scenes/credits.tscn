@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dy6028gcsqidt"]
+[gd_scene load_steps=5 format=3 uid="uid://dy6028gcsqidt"]
 
-[ext_resource type="Theme" uid="uid://b72g06jk405ar" path="res://Assets/Themes/theme_title.tres" id="1_4l3hc"]
+[ext_resource type="Theme" uid="uid://csu3bd0v4asma" path="res://Assets/Themes/theme_title_final.tres" id="1_8er2i"]
 [ext_resource type="Script" path="res://Scenes/credits.gd" id="2_7b4p2"]
+[ext_resource type="Texture2D" uid="uid://cwa8rubcs4hhq" path="res://Assets/Images/Tela final (pixealizado).png" id="3_1lehp"]
+[ext_resource type="Texture2D" uid="uid://t8edb1x038je" path="res://Assets/Images/TGD_logo_pixel.png" id="4_2ja1i"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -10,23 +12,109 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_4l3hc")
+theme = ExtResource("1_8er2i")
 script = ExtResource("2_7b4p2")
+
+[node name="BG" type="TextureRect" parent="."]
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("3_1lehp")
 
 [node name="BtnReturn" type="Button" parent="."]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 64.0
-offset_bottom = 37.0
+offset_bottom = 29.0
 text = "Return"
 
-[node name="Label" type="Label" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -53.5
+offset_top = 33.0
+offset_right = 53.5
+offset_bottom = 98.0
+grow_horizontal = 2
+texture = ExtResource("4_2ja1i")
+
+[node name="ThankYou" type="Label" parent="."]
 layout_mode = 0
-offset_left = 122.0
-offset_top = 31.0
-offset_right = 195.0
-offset_bottom = 44.0
-text = "logo da tgd aqui"
+offset_left = 88.0
+offset_top = 8.0
+offset_right = 246.0
+offset_bottom = 85.0
+theme_type_variation = &"HeaderSmall"
+text = "Thank you for playing!"
+horizontal_alignment = 1
+
+[node name="Art" type="Label" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 96.0
+offset_right = 325.0
+offset_bottom = 173.0
+theme_type_variation = &"HeaderSmall"
+text = "Artwork"
+horizontal_alignment = 1
+
+[node name="Art2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 96.0
+offset_right = 117.0
+offset_bottom = 173.0
+theme_type_variation = &"HeaderSmall"
+text = "Game Design"
+horizontal_alignment = 1
+
+[node name="Art3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 96.0
+offset_right = 229.0
+offset_bottom = 173.0
+theme_type_variation = &"HeaderSmall"
+text = "Programming"
+horizontal_alignment = 1
+
+[node name="NamesArt" type="Label" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 120.0
+offset_right = 325.0
+offset_bottom = 152.0
+text = "Ana \"Potatoana\"
+Mayanderson \"Krono\""
+horizontal_alignment = 1
+
+[node name="NamesDesign" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 120.0
+offset_right = 97.0
+offset_bottom = 144.0
+text = "Oscar \"Meikyu\""
+
+[node name="NamesProg" type="Label" parent="."]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 120.0
+offset_right = 224.0
+offset_bottom = 152.0
+text = "Davi \"DfindWox\" Sampaio
+Natan Maia"
+horizontal_alignment = 1
+
+[node name="Music" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 160.0
+offset_right = 304.0
+offset_bottom = 192.0
+text = "Music sourced from Ral Schutz under cc by-sa 4.0"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="BtnReturn" to="." method="_on_btn_return_pressed"]
