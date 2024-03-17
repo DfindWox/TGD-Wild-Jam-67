@@ -42,9 +42,10 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="Ground1" parent="." instance=ExtResource("4_n3y5a")]
+position = Vector2(32, 0)
 
 [node name="Ground2" parent="." instance=ExtResource("4_n3y5a")]
-position = Vector2(370, 0)
+position = Vector2(385, 0)
 
 [node name="Ground3" parent="." instance=ExtResource("4_n3y5a")]
 position = Vector2(-320, 0)
@@ -65,7 +66,7 @@ shape = SubResource("RectangleShape2D_qbjpb")
 debug_color = Color(0.905882, 0.305882, 0, 0.419608)
 
 [node name="LevelFinishZone" type="Area2D" parent="."]
-position = Vector2(94, 97)
+position = Vector2(617, 156)
 script = ExtResource("8_pck77")
 next_scene_packed = ExtResource("9_63u10")
 

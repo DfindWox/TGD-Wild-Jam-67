@@ -287,7 +287,7 @@ wait_time = 3.5
 autostart = true
 
 [node name="EdgeRay" type="RayCast2D" parent="."]
-position = Vector2(13, -10)
+position = Vector2(13, -4)
 target_position = Vector2(0, 22)
 hit_from_inside = true
 
