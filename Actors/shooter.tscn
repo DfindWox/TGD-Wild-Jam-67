@@ -217,4 +217,5 @@ target_position = Vector2(100, 0)
 wait_time = 0.505
 one_shot = true
 
+[connection signal="detach" from="." to="." method="_on_detach"]
 [connection signal="timeout" from="AttackDelay" to="." method="_on_attack_delay_timeout"]
