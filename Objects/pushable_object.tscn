@@ -7,6 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0yau"]
 size = Vector2(24, 17)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66jvu"]
+size = Vector2(20, 2)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utmio"]
 size = Vector2(4, 19)
 
@@ -53,9 +56,6 @@ colors = PackedColorArray(1, 1, 1, 1, 0.333333, 0.686275, 1, 1)
 gradient = SubResource("Gradient_jfg4d")
 width = 1
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_66jvu"]
-size = Vector2(20, 2)
-
 [node name="PushableObject" type="CharacterBody2D" node_paths=PackedStringArray("push_area_left", "push_area_right")]
 script = ExtResource("1_ebnkc")
 push_area_left = NodePath("PushAreaLeft")
@@ -64,6 +64,10 @@ push_area_right = NodePath("PushAreaRight")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_g0yau")
+
+[node name="Floor" type="CollisionShape2D" parent="CollisionShape2D"]
+position = Vector2(0, -11.5)
+shape = SubResource("RectangleShape2D_66jvu")
 
 [node name="PushAreaLeft" type="Area2D" parent="."]
 position = Vector2(-12, 0)
@@ -120,7 +124,3 @@ unique_name_in_owner = true
 stream = ExtResource("3_dmoib")
 autoplay = true
 bus = &"SFX"
-
-[node name="Floor" type="CollisionShape2D" parent="."]
-position = Vector2(0, -9)
-shape = SubResource("RectangleShape2D_66jvu")

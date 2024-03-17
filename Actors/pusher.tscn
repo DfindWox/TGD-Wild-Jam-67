@@ -7,6 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5fsb0"]
 size = Vector2(20, 14)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjvqn"]
+size = Vector2(20, 2)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8pjqn"]
 size = Vector2(1.5, 20)
 
@@ -229,9 +232,6 @@ _data = {
 "pushStart": SubResource("Animation_nky7d")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjvqn"]
-size = Vector2(20, 2)
-
 [node name="Pusher" type="CharacterBody2D"]
 collision_layer = 257
 script = ExtResource("1_jl2nw")
@@ -242,6 +242,10 @@ is_facing_right = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_5fsb0")
+
+[node name="Floor" type="CollisionShape2D" parent="CollisionShape2D"]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_pjvqn")
 
 [node name="PushAreaLeft" type="Area2D" parent="."]
 position = Vector2(0, 10)
@@ -295,10 +299,6 @@ autostart = true
 position = Vector2(13, -1)
 target_position = Vector2(0, 22)
 hit_from_inside = true
-
-[node name="Floor" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
-shape = SubResource("RectangleShape2D_pjvqn")
 
 [connection signal="detach" from="." to="." method="_on_detach"]
 [connection signal="area_entered" from="PushAreaLeft" to="." method="_on_push_area_area_entered"]

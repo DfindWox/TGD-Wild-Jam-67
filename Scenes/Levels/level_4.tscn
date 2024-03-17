@@ -56,4 +56,4 @@ position = Vector2(769, 121)
 
 [connection signal="detach" from="TileMap/Pusher" to="TileMap/Pusher" method="_on_detach"]
 [connection signal="detach" from="TileMap/Shooter" to="TileMap/Shooter" method="_on_detach"]
-[connection signal="detach" from="TileMap/@CharacterBody2D@87012" to="TileMap/@CharacterBody2D@87012" method="_on_detach"]
+[connection signal="detach" from="TileMap/@CharacterBody2D@23796" to="TileMap/@CharacterBody2D@23796" method="_on_detach"]
