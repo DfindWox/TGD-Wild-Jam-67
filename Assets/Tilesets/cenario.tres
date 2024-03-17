@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=6 format=3 uid="uid://be8geo5gppwp"]
 
 [ext_resource type="Texture2D" uid="uid://cqllwggewqgr4" path="res://Assets/Tilesets/Model Sheet (Cenario).png" id="1_eoov4"]
-[ext_resource type="PackedScene" path="res://Objects/death_spikes.tscn" id="2_jisl5"]
+[ext_resource type="PackedScene" uid="uid://b0u8yv8u8tpxf" path="res://Objects/death_spikes.tscn" id="2_jisl5"]
 [ext_resource type="PackedScene" path="res://Objects/death_water.tscn" id="3_uq8ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tv0hp"]

@@ -79,7 +79,12 @@ func detach_parasite():
 	get_tree().current_scene.add_child(parasite)
 	parasite.global_position = global_position + Vector2(0, -16)
 	parasite.velocity.y = -100
-	parasite.velocity.x = 100 * [-1,1].pick_random()
+	var dir
+	if is_facing_right:
+		dir = 1
+	else:
+		dir = -1
+	parasite.velocity.x = 100 * dir
 	parasite.is_taking_over = true
 	var camera = get_node_or_null("GameCamera")
 	if camera:
