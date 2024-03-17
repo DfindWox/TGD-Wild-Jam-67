@@ -2,7 +2,7 @@ shader_type canvas_item;
 render_mode unshaded;
 
 uniform sampler2D dissolve_texture : hint_default_black;
-uniform float dissolve_value : hint_range(0,1);
+uniform float dissolve_value : hint_range(0,1) = 1;
 
 void fragment(){
     vec4 main_texture = texture(TEXTURE, UV);

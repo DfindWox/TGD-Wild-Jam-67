@@ -15,6 +15,7 @@ func _ready():
 ## A animação "break" pode ser customizada pra cada caso.
 func break_object():
 	break_area.queue_free()
+	AudioManager.play_sfx("interesting.wav")
 	animation_player.play("break")
 	await animation_player.animation_finished
 	queue_free()
