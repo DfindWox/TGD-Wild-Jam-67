@@ -59,5 +59,3 @@ shape = SubResource("RectangleShape2D_2sqcb")
 [node name="Sprite2D" type="Sprite2D" parent="LevelFinishZone"]
 position = Vector2(8, 7)
 texture = ExtResource("8_hh1k0")
-
-[connection signal="detach" from="TileMap/Pusher" to="TileMap/Pusher" method="_on_detach"]

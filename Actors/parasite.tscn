@@ -290,8 +290,8 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(50, 0)
 theme = ExtResource("3_u3k5t")
-theme_override_font_sizes/font_size = 16
-text = "Take Over"
+theme_override_font_sizes/font_size = 13
+text = "Z: Take Over"
 horizontal_alignment = 1
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_area_2d_body_entered"]
