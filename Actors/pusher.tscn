@@ -11,7 +11,7 @@ size = Vector2(20, 14)
 size = Vector2(20, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8pjqn"]
-size = Vector2(1.5, 20)
+size = Vector2(1.5, 12)
 
 [sub_resource type="Animation" id="Animation_s2lcj"]
 length = 0.001
@@ -253,7 +253,7 @@ collision_layer = 2048
 collision_mask = 2048
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushAreaLeft"]
-position = Vector2(-10, -10)
+position = Vector2(-10, -8)
 shape = SubResource("RectangleShape2D_8pjqn")
 debug_color = Color(0, 0.643137, 0.294118, 0.419608)
 
@@ -263,7 +263,7 @@ collision_layer = 2048
 collision_mask = 2048
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushAreaRight"]
-position = Vector2(10, -10)
+position = Vector2(10, -8)
 shape = SubResource("RectangleShape2D_8pjqn")
 debug_color = Color(0, 0.643137, 0.294118, 0.419608)
 
