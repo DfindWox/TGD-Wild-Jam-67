@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://6x35rg6j1sgg"]
+[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://be8geo5gppwp"]
 
 [ext_resource type="Texture2D" uid="uid://cqllwggewqgr4" path="res://Assets/Tilesets/Model Sheet (Cenario).png" id="1_eoov4"]
 [ext_resource type="PackedScene" uid="uid://8vgglq2tk8tv" path="res://Objects/death_spikes.tscn" id="2_jisl5"]

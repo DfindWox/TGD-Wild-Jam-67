@@ -39,3 +39,7 @@ func _on_aggro_timer_timeout():
 func _on_turn_timer_timeout():
 	if not saw_enemy and not has_parasite:
 		is_facing_right = not is_facing_right
+
+
+func _on_detach():
+	saw_enemy = false

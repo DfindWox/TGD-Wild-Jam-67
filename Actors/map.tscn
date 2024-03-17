@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d0q5yf7k322sd"]
 
-[ext_resource type="TileSet" uid="uid://6x35rg6j1sgg" path="res://Assets/Tilesets/cenario.tres" id="1_ucrr3"]
+[ext_resource type="TileSet" uid="uid://be8geo5gppwp" path="res://Assets/Tilesets/cenario.tres" id="1_ucrr3"]
 
 [node name="Map" type="Node2D"]
 

@@ -36,5 +36,10 @@ func shoot():
 
 
 func _on_attack_delay_timeout():
-	$AnimationPlayer.play("shoot")
-	attack_timer.start()
+	if not has_parasite:
+		$AnimationPlayer.play("shoot")
+		attack_timer.start()
+
+
+
+
