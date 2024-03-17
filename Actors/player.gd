@@ -27,8 +27,9 @@ func player_skills(_delta:float):
 
 func player_move(_delta): # delta não é usado ainda pois ta incluso em move_and_slide
 	if Input.is_action_just_pressed("ui_up") and total_jumps < max_jumps:
-		velocity.y = - jump_velocity
 		total_jumps += 1
+		velocity.y = - jump_velocity
+		$AnimationPlayer.stop()
 		$AnimationPlayer.play("jump")
 		AudioManager.play_sfx("jump.wav")
 	

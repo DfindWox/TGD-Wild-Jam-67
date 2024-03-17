@@ -31,3 +31,7 @@ func shoot():
 	bullet.global_position = global_position
 	bullet.set_direction(is_facing_right)
 	AudioManager.play_sfx("shoot.wav")
+
+func detach_parasite():
+	$attack_timer.start() # nao atirar imediatamente apos sair
+	super()

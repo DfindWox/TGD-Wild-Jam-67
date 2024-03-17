@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://vn3a4opstfk6"]
+[gd_scene load_steps=14 format=3 uid="uid://vn3a4opstfk6"]
 
 [ext_resource type="Texture2D" uid="uid://k3h7fkcet1sx" path="res://Assets/Images/Fundo.png" id="1_6pq48"]
 [ext_resource type="PackedScene" uid="uid://jsupauf4pu8f" path="res://Actors/parasite.tscn" id="3_8a82b"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Objects/Zones/LevelFinishZone.gd" id="8_pck77"]
 [ext_resource type="PackedScene" uid="uid://dy3wv60dua1v5" path="res://Objects/breakable_object.tscn" id="9_63u10"]
 [ext_resource type="PackedScene" uid="uid://vgrhnrppc0xn" path="res://Objects/pushable_object.tscn" id="10_eqxmq"]
+[ext_resource type="PackedScene" uid="uid://bftvfsjlakke2" path="res://Actors/jumper.tscn" id="11_unxy5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qbjpb"]
 
@@ -74,3 +75,6 @@ debug_color = Color(0, 0, 0, 0.419608)
 
 [node name="PushableObject" parent="." instance=ExtResource("10_eqxmq")]
 position = Vector2(-28, 146)
+
+[node name="jumper" parent="." instance=ExtResource("11_unxy5")]
+position = Vector2(-99, 154)

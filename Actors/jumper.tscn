@@ -1,7 +1,172 @@
-[gd_scene load_steps=3 format=3 uid="uid://bftvfsjlakke2"]
+[gd_scene load_steps=12 format=3 uid="uid://bftvfsjlakke2"]
 
 [ext_resource type="PackedScene" uid="uid://c76psunhjjgmq" path="res://Actors/player.tscn" id="1_gefrd"]
 [ext_resource type="Script" path="res://Actors/jumper.gd" id="2_nb3p1"]
+[ext_resource type="Texture2D" uid="uid://ym3krp55y1vl" path="res://Assets/Images/Inimigo3.png" id="3_3yf60"]
+[ext_resource type="Texture2D" uid="uid://cl040rykrnlcf" path="res://Assets/Images/Inimigo3_parasitado.png" id="4_wuws3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0s7hh"]
+size = Vector2(10, 12)
+
+[sub_resource type="Animation" id="Animation_n57ro"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_v0ldu"]
+resource_name = "move"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_wlaiy"]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"adjust_jump_velocity"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_07kpe"]
+resource_name = "land"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [11, 8]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["idle", -1, 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_r5aca"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [8, 15, 16]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"adjust_jump_velocity"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_28ntg"]
+_data = {
+"die": SubResource("Animation_r5aca"),
+"idle": SubResource("Animation_n57ro"),
+"jump": SubResource("Animation_wlaiy"),
+"land": SubResource("Animation_07kpe"),
+"move": SubResource("Animation_v0ldu")
+}
 
 [node name="jumper" instance=ExtResource("1_gefrd")]
+collision_layer = 257
+platform_on_leave = 2
 script = ExtResource("2_nb3p1")
+air_move_speed = 100.0
+ground_move_speed = 0.0
+jump_weakening_mod = 0.7
+max_jumps = 5
+gravity = 300.0
+sprite_normal = ExtResource("3_3yf60")
+sprite_has_parasite = ExtResource("4_wuws3")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_0s7hh")
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(-1, 1)
+texture = ExtResource("3_3yf60")
+hframes = 6
+vframes = 4
+frame = 16
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_28ntg")
+}
+autoplay = "idle"
+
+[node name="AIJumpTimer" type="Timer" parent="." index="3"]
+process_callback = 0
+wait_time = 1.32
+one_shot = true
+autostart = true
