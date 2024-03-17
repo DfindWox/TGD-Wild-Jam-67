@@ -98,5 +98,3 @@ theme = ExtResource("11_alv4e")
 theme_override_font_sizes/font_size = 15
 text = "X: Shoot
 "
-
-[connection signal="detach" from="TileMap/Pusher" to="TileMap/Pusher" method="_on_detach"]

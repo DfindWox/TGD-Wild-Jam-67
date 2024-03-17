@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dy3wv60dua1v5" path="res://Objects/breakable_object.tscn" id="5_iomdk"]
 [ext_resource type="PackedScene" uid="uid://dyxv11adu27lc" path="res://Actors/shooter.tscn" id="6_pxy05"]
 [ext_resource type="Script" path="res://Objects/Zones/LevelFinishZone.gd" id="7_kdyys"]
-[ext_resource type="PackedScene" uid="uid://d3ftxq63ujvvg" path="res://Scenes/Levels/level_4.tscn" id="8_7ttve"]
+[ext_resource type="PackedScene" uid="uid://dyns571vvg2am" path="res://Scenes/Levels/level_4.tscn" id="8_7ttve"]
 [ext_resource type="Texture2D" uid="uid://ce8n25tqvtio3" path="res://Assets/Tilesets/Flag.png" id="8_hh1k0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2sqcb"]
@@ -61,5 +61,3 @@ shape = SubResource("RectangleShape2D_2sqcb")
 [node name="Sprite2D" type="Sprite2D" parent="LevelFinishZone"]
 position = Vector2(8, 7)
 texture = ExtResource("8_hh1k0")
-
-[connection signal="detach" from="TileMap/Pusher" to="TileMap/Pusher" method="_on_detach"]
