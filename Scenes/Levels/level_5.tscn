@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c8p1a2ugaowql"]
+[gd_scene load_steps=16 format=3 uid="uid://c8p1a2ugaowql"]
 
 [ext_resource type="Texture2D" uid="uid://7ko5stpjb1b2" path="res://Assets/Images/Fundo caverna.png" id="1_m2dpj"]
 [ext_resource type="PackedScene" uid="uid://jsupauf4pu8f" path="res://Actors/parasite.tscn" id="2_nnl8o"]
@@ -13,11 +13,12 @@
 [ext_resource type="Script" path="res://Objects/Zones/LevelFinishZone.gd" id="11_6op2v"]
 [ext_resource type="PackedScene" uid="uid://dy6028gcsqidt" path="res://Scenes/credits.tscn" id="12_mo8pi"]
 [ext_resource type="Texture2D" uid="uid://ce8n25tqvtio3" path="res://Assets/Tilesets/Flag.png" id="13_68r6p"]
+[ext_resource type="PackedScene" uid="uid://bo05xulbs8tw0" path="res://Scenes/UI/pause_screen.tscn" id="14_ld8ah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5t3ln"]
 size = Vector2(32, 32)
 
-[node name="LevelTest" type="Node2D"]
+[node name="Level5" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -79,3 +80,5 @@ shape = SubResource("RectangleShape2D_5t3ln")
 
 [node name="Sprite2D" type="Sprite2D" parent="LevelFinishZone"]
 texture = ExtResource("13_68r6p")
+
+[node name="PauseScreen" parent="." instance=ExtResource("14_ld8ah")]

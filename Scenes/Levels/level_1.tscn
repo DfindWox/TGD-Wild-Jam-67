@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8q4asu0m7yx5"]
+[gd_scene load_steps=14 format=3 uid="uid://c8q4asu0m7yx5"]
 
 [ext_resource type="Texture2D" uid="uid://k3h7fkcet1sx" path="res://Assets/Images/Fundo.png" id="1_v8a42"]
 [ext_resource type="PackedScene" uid="uid://jsupauf4pu8f" path="res://Actors/parasite.tscn" id="2_wd103"]
@@ -11,11 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://vgrhnrppc0xn" path="res://Objects/pushable_object.tscn" id="9_uc624"]
 [ext_resource type="PackedScene" uid="uid://dyxv11adu27lc" path="res://Actors/shooter.tscn" id="10_l54i3"]
 [ext_resource type="Theme" uid="uid://b72g06jk405ar" path="res://Assets/Themes/theme_title.tres" id="11_alv4e"]
+[ext_resource type="PackedScene" uid="uid://bo05xulbs8tw0" path="res://Scenes/UI/pause_screen.tscn" id="12_bguf5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mokxr"]
 size = Vector2(61.9999, 32)
 
-[node name="LevelTest2" type="Node2D"]
+[node name="Level1" type="Node2D"]
 position = Vector2(364.273, 0)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -98,3 +99,5 @@ theme = ExtResource("11_alv4e")
 theme_override_font_sizes/font_size = 15
 text = "X: Shoot
 "
+
+[node name="PauseScreen" parent="." instance=ExtResource("12_bguf5")]

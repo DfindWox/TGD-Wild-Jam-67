@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dyns571vvg2am"]
+[gd_scene load_steps=12 format=3 uid="uid://dyns571vvg2am"]
 
 [ext_resource type="TileSet" uid="uid://be8geo5gppwp" path="res://Assets/Tilesets/cenario.tres" id="1_buyp2"]
 [ext_resource type="Texture2D" uid="uid://7ko5stpjb1b2" path="res://Assets/Images/Fundo caverna.png" id="1_ihe8i"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Objects/Zones/LevelFinishZone.gd" id="6_kiklw"]
 [ext_resource type="Texture2D" uid="uid://ce8n25tqvtio3" path="res://Assets/Tilesets/Flag.png" id="7_381pw"]
 [ext_resource type="PackedScene" uid="uid://c8p1a2ugaowql" path="res://Scenes/Levels/level_5.tscn" id="8_nwjvy"]
+[ext_resource type="PackedScene" uid="uid://bo05xulbs8tw0" path="res://Scenes/UI/pause_screen.tscn" id="10_idxph"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3bqw"]
 size = Vector2(46, 130.5)
@@ -74,5 +75,4 @@ texture = ExtResource("7_381pw")
 [node name="BreakableObject2" parent="." instance=ExtResource("4_iqtpj")]
 position = Vector2(768, 128)
 
-[connection signal="detach" from="TileMap/Pusher" to="TileMap/Pusher" method="_on_detach"]
-[connection signal="detach" from="TileMap/@CharacterBody2D@22111" to="TileMap/@CharacterBody2D@22111" method="_on_detach"]
+[node name="PauseScreen" parent="." instance=ExtResource("10_idxph")]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo05xulbs8tw0"]
+
+[ext_resource type="Script" path="res://Scenes/UI/pause_screen.gd" id="1_0p1l7"]
+[ext_resource type="Theme" uid="uid://csu3bd0v4asma" path="res://Assets/Themes/theme_title_final.tres" id="2_y0twb"]
+
+[node name="PauseScreen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_0p1l7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_y0twb")
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_right = 120
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="BtnContinue" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Continue"
+
+[node name="BtnRestart" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BtnContinue" to="." method="_on_btn_continue_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BtnRestart" to="." method="_on_btn_restart_pressed"]

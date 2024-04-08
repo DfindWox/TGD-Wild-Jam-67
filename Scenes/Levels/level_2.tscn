@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d2hgj6v76teks"]
+[gd_scene load_steps=14 format=3 uid="uid://d2hgj6v76teks"]
 
 [ext_resource type="Texture2D" uid="uid://k3h7fkcet1sx" path="res://Assets/Images/Fundo.png" id="1_fp1in"]
 [ext_resource type="PackedScene" uid="uid://jsupauf4pu8f" path="res://Actors/parasite.tscn" id="2_7mnsv"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ce8n25tqvtio3" path="res://Assets/Tilesets/Flag.png" id="9_xttm4"]
 [ext_resource type="PackedScene" uid="uid://dyxv11adu27lc" path="res://Actors/shooter.tscn" id="10_n4rou"]
 [ext_resource type="PackedScene" uid="uid://ckbun01s5srae" path="res://Scenes/Levels/level_3.tscn" id="10_q76wi"]
+[ext_resource type="PackedScene" uid="uid://bo05xulbs8tw0" path="res://Scenes/UI/pause_screen.tscn" id="11_ml2oi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybw8h"]
 size = Vector2(16, 12)
@@ -17,7 +18,7 @@ size = Vector2(16, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhuml"]
 size = Vector2(32, 32)
 
-[node name="LevelTest" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -76,5 +77,7 @@ texture = ExtResource("9_xttm4")
 
 [node name="Shooter" parent="." instance=ExtResource("10_n4rou")]
 position = Vector2(600, 120)
+
+[node name="PauseScreen" parent="." instance=ExtResource("11_ml2oi")]
 
 [editable path="DeathSpikes2"]

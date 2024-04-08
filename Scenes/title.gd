@@ -21,7 +21,7 @@ func _on_btn_start_pressed():
 	AudioManager.play_music("2-garden_0.mp3")
 	await Fade.fade_in()
 	
-
+''
 func _on_btn_credits_pressed():
 	await Fade.fade_out(0.2)
 	get_tree().change_scene_to_file("res://Scenes/credits.tscn")
